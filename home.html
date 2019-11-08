@@ -1,20 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>HOME</title>
-    <meta charset="utf-8"/>
-  </head>
-    
-  <body>
-    <header>Welcome to our home page!</header>
+
+<head>
+  <title>Feelin Vegan</title>
+  <meta charset="utf-8" />
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+  <!--Include firebase related things -->
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  <style>
+    /* background color */
+    #content {
+      position: absolute;
+      width: calc(414px * 2.37);
+      height: calc(736px * 2.37);
+      left: 0px;
+      top: 0px;
+
+      background: #888888;
       
-      <h2>Generate a vegan snack recipe</h2>
+      filter: brightness(.75);
+    }
+
+    header {
+      position: absolute;
+      width: calc(414px * 2.37);
+      height: calc(90px * 2.37);
+      left: 0px;
+      top: calc(0px * 2.37);
+      border: calc(4px*2.37) solid #ffbc6c;
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+
+      background: #FFFFFF;
+    }
+
+    /* logo circle */
+    #logoCircle {
+      position: absolute;
+      width: calc(64px * 2.37);
+      height: calc(63px * 2.37);
+      left: calc(17px * 2.37);
+      top: calc(16px * 2.37);
+
+      border-radius: 100%;
+
+      background: #87D37C;
+    }
+
+    /* Header: "Category" */
+    #headerCategory {
+      position: absolute;
+      width: calc(210px * 2.37);
+      height: calc(38px * 2.37);
+      left: calc(34px * 2.37);
+      top: calc(95px * 2.37);
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 500;
+      font-size: calc(30px * 2.37);
+      line-height: calc(37px * 2.37);
+
+      color: #FFFFFF;
+    }
+
+
+
+    /* Header: "CHOOSE A SNACK" */
+    #chooseASnack {
+      position: absolute;
+      width: calc(281px * 2.37);
+      height: calc(48px * 2.37);
+      left: calc(95px * 2.37);
+      top: calc(10px * 2.37);
+
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: normal;
+      font-size: calc(30px * 2.37);
+      line-height: calc(37px * 2.37);
+
+      color: #000000;
+    }
+
+
+    /* protein and nuts button */
+    #protienButton {
+      position: absolute;
+      width: calc(414px * 2.37);
+      height: calc(125px * 2.37);
+      left: calc(0px * 2.37);
+      top: calc(293px * 2.37);
+
+      background: url(./images/protienButtonBackground.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      filter: brightness(0.7);
+    }
+
+
+    /* grains button */
+    #grainsButton {
+      position: absolute;
+      width: calc(414px * 2.37);
+      height: calc(125px * 2.37);
+      left: calc(0px * 2.37);
+      top: calc(418px * 2.37);
+
+      background: url(./images/grainsButtonBackground.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      filter: brightness(0.7);
+    }
+
+
+    /* Menu bar */
+    #menuBar {
+      position: absolute;
+      width: calc(414px * 2.37);
+      height: calc(60px * 2.37);
+      left: 0px;
+      top: calc(676px * 2.37);
+
+
+      background: #87D37C;
+    }
+
+
+    /* fruits and veggies background */
+    #fruitsVeggiesBackground {
+      position: absolute;
+      width: calc(414px * 2.37);
+      height: calc(123px * 2.37);
+      left: 0px;
+      top: calc(169px * 2.37);
+      border-top: 7px solid #FFE99c;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      background: url(./images/veggiesButtonBackground.jpg);
+      filter: brightness(0.7);
+    }
+
+
+    /* fruits and veggies */
+    #fruitsVeggiesText {
+      position: absolute;
+      width: calc(224px * 2.37);
+      height: calc(29px * 2.37);
+      left: calc(101px * 2.37);
+      top: calc(217px * 2.37);
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 1000;
+      font-size: calc(20px * 2.37);
+      line-height: calc(24px * 2.37);
+
+      text-shadow: 5px 4px #000000;
+
+
+      color: #FFFFFF;
+    }
+
+
+
+    /* protein and nuts */
+    #protienNutsText {
+      position: absolute;
+      width: calc(227px * 2.37);
+      height: calc(29px * 2.37);
+      left: calc(120px * 2.37);
+      top: calc(348px * 2.37);
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 800;
+      font-size: calc(20px * 2.37);
+      line-height: calc(24px * 2.37);
+
+      text-shadow: 5px 4px #000000;
+
+      color: #FFFFFF;
+    }
+
+
+    /* grains */
+    #grainsText {
+      position: absolute;
+      width: calc(74px * 2.37);
+      height: calc(29px * 2.37);
+      left: calc(175px * 2.37);
+      top: calc(466px * 2.37);
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 800;
+      font-size: calc(20px * 2.37);
+      line-height: calc(24px * 2.37);
+
+      text-shadow: 5px 4px #000000;
+
+      color: #FFFFFF;
+    }
+
+
+
+    /* Checkmark button */
+    #checkmarkButton {
+      position: absolute;
+      width: calc(80px * 2.37);
+      height: calc(74px * 2.37);
+      left: calc(167px * 2.37);
+      top: calc(580px * 2.37);
+
+      background: #FFC46C;
+
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 800;
+      font-size: calc(20px * 2.37);
+      line-height: calc(24px * 2.37);
+
+      border-radius: 100%;
+    }
+
+    /* Home button */
+    #homeButton {
+      position: absolute;
+      width: calc(40px * 2.37);
+      height: calc(40px * 2.37);
+      left: calc(186px * 2.37);
+      top: calc(684px * 2.37);
+
+      background: url(./images/home.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
       
-      <p>This app generates a recipe based on your answers to our questionnaire. Select a food item (fruit, vegetable, grain, proteins) and then answer some questions to get tasty recipes.<p>
-      
-      <p>You can also track your completed recipes and see which ones were a success.</p>
+      filter: brightness(.9);
+      border: 7px solid #80D070;
+    }
+
+    /* Profile button */
+    #profileButton {
+      position: absolute;
+      width: calc(40px * 2.37);
+      height: calc(40px * 2.37);
+      left: calc(300px * 2.37);
+      top: calc(683px * 2.37);
+
+      background: url(./images/user.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    #skipText {
+      position: absolute;
+      left: calc(18px * 2.37);
+      top: calc(24px * 2.37);
+    }
+
+    #searchButton {
+      /* Search recipe button */
+
+      position: absolute;
+      width: calc(40px * 2.37);
+      height: calc(40px * 2.37);
+      left: calc(70px * 2.37);
+      top: calc(684px * 2.37);
+
+
+      background: url(./images/search.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+
+    }
     
+    #firebasecontainer {
+      position: absolute;
+      display: block;
+      top: 200px;
+      left: 310px;
+    }
     
+  </style>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyA9xoQBnrfkzLoaRksE6qVLNuEqcav-Ji0",
+      authDomain: "test-bd65b.firebaseapp.com",
+      databaseURL: "https://test-bd65b.firebaseio.com",
+      projectId: "test-bd65b",
+      storageBucket: "test-bd65b.appspot.com",
+      messagingSenderId: "3734598502",
+      appId: "1:3734598502:web:7073bb1f259a6e65420ea7",
+      measurementId: "G-YH52R5ZEP4"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+</head>
+
+<body>
+  <div id=firebasecontainer>
+<div id="firebaseui-auth-container"></div>
+  <div id="loader">Loading...</div>
+    </div>
+  <div id=content>
+    <div id=menuBar></div>
+    <header></header>
+    <h1 id="chooseASnack">CHOOSE A SNACK</h1>
+    <h1 id="headerCategory">Category</h1>
+    <div id=fruitsVeggiesBackground></div>
+    <span id=fruitsVeggiesText>Fruits and Vegetables</span>
+    <div id=grainsButton></div>
+    <div id=protienButton></div>
+    <span id=protienNutsText>Protien and Nuts</span>
+    <span id=grainsText>Grains</span>
+    <div id=logoCircle></div>
+    <div id=profileButton></div>
+    <div id=homeButton></div>
+    <div id=searchButton></div>
+    <div id=checkmarkButton><span id=skipText>Skip</span></div>
     
-    
-  </body>
+  </div>
+
+  <script>
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+    var uiConfig = {
+      callbacks: {
+        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+          // User successfully signed in.
+          // Return type determines whether we continue the redirect automatically
+          // or whether we leave that to developer to handle.
+          return true;
+        },
+        uiShown: function() {
+          // The widget is rendered.
+          // Hide the loader.
+          document.getElementById('loader').style.display = 'none';
+        }
+      },
+      // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+      signInFlow: 'popup',
+      signInSuccessUrl: '<url-to-redirect-to-on-success>',
+      signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        //firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        //firebase.auth.PhoneAuthProvider.PROVIDER_ID
+      ],
+      // Terms of service url.
+      tosUrl: '<your-tos-url>',
+      // Privacy policy url.
+      privacyPolicyUrl: '<main.html>'
+    };
+
+    // The start method will wait until the DOM is loaded.
+    ui.start('#firebaseui-auth-container', uiConfig);
+  </script>
+
+</body></html>
