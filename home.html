@@ -16,6 +16,29 @@
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
   <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  
+  <!------------------------------------------------------------------------------>
+    <!-- Optional styles and scripts of your own                                  -->
+    <!------------------------------------------------------------------------------>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/script.js"></script>
+
+    <script>
+      const firebaseConfig = {
+  apiKey: "AIzaSyCe5qVI7blspULFqLJ1QIhoGnDnrB7vJwc",
+  authDomain: "recipeproject-ba288.firebaseapp.com",
+  databaseURL: "https://recipeproject-ba288.firebaseio.com",
+  projectId: "recipeproject-ba288",
+  storageBucket: "recipeproject-ba288.appspot.com",
+  messagingSenderId: "199394858198",
+  appId: "1:199394858198:web:d5fa1bd2f982ac14d92577",
+  measurementId: "G-RFT5692BZ9"
+};
+      
+
+    firebase.initializeApp(firebaseConfig);
+      var db = firebase.firestore();
+  </script>
 
   <style>
     /* background color */
