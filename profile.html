@@ -283,8 +283,8 @@
         <span id=identityTag></span>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <a class="dropdown-item" href="#!">Diabetic</a>
-        <a class="dropdown-item" href="#!">Ketogenic</a>
+        <a class="dropdown-item" id="diabet">Diabetic</a>
+        <a class="dropdown-item" id="keto">Ketogenic</a>
       </div>
     </div>
 
@@ -359,11 +359,13 @@
           });
       })
     }
-    
+
     $(document).ready(setUserIdentity());
 
-    function setAddListener() {
-      document.getElementById("addBtn").addEventListener("click", function (e) {
+    setIdentityListener();
+
+    function setIdentityListener() {
+      document.getElementById("keto").addEventListener("click", function (e) {
 
         //---------------------------
         // Event Handler begins here
@@ -372,8 +374,8 @@
           var userRef = db.collection('users').doc(user.uid);
 
           // add a date to the history sub-collection
-          userRef.collection("history").add({
-            date: firebase.firestore.FieldValue.serverTimestamp()
+          userRef.set({
+            isA: "Ketogenic"
           });
         });
         //----------------------
@@ -381,6 +383,25 @@
         //----------------------
 
       })
+
+      document.getElementById("diabet").addEventListener("click", function (e) {
+
+//---------------------------
+// Event Handler begins here
+//---------------------------
+firebase.auth().onAuthStateChanged(function (user) {
+  var userRef = db.collection('users').doc(user.uid);
+
+  // add a date to the history sub-collection
+  userRef.set({
+    isA: "Diabetic"
+  });
+});
+//----------------------
+// End of event handling
+//----------------------
+
+})
     }
   </script>
 
