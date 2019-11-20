@@ -347,15 +347,12 @@
   <script>
     function setUserIdentity(n) {
       firebase.auth().onAuthStateChanged(function (user) {
-        db.collection("users/").doc(user.uid)
-          .onSnapshot(function (d) {
-            console.log("Current data: ", d.data());
+        db.collection("users/").doc(user.uid).onSnapshot(function (d) {
             if (d.get("isA") != null)
-              x = d.data()["isA"];
+              x = d.data()["isA"];  //sets data in dropdown menu to identity tag
             else
-              x = "________"; // user has not added tag yet
-            console.log(x);
-            document.getElementById("identityTag").innerHTML = x;
+              x = "________";       // if user has not added tag yet
+            document.getElementById("identityTag").innerHTML = x; //puts data in html
           });
       })
     }
@@ -365,6 +362,8 @@
     setIdentityListener();
 
     function setIdentityListener() {
+
+      //Add event listener for a click on the ketogenic dropdown menu
       document.getElementById("keto").addEventListener("click", function (e) {
 
         //---------------------------
@@ -373,8 +372,8 @@
         firebase.auth().onAuthStateChanged(function (user) {
           var userRef = db.collection('users').doc(user.uid);
 
-          // add a date to the history sub-collection
-          userRef.set({
+          // Set users identity to ketogenic
+          userRef.update({
             isA: "Ketogenic"
           });
         });
@@ -384,24 +383,25 @@
 
       })
 
+      //Add event listener for a click on the diabetic dropdown menu
       document.getElementById("diabet").addEventListener("click", function (e) {
 
-//---------------------------
-// Event Handler begins here
-//---------------------------
-firebase.auth().onAuthStateChanged(function (user) {
-  var userRef = db.collection('users').doc(user.uid);
+        //---------------------------
+        // Event Handler begins here
+        //---------------------------
+        firebase.auth().onAuthStateChanged(function (user) {
+          var userRef = db.collection('users').doc(user.uid);
 
-  // add a date to the history sub-collection
-  userRef.set({
-    isA: "Diabetic"
-  });
-});
-//----------------------
-// End of event handling
-//----------------------
+          // Set users identity to ketogenic
+          userRef.update({
+            isA: "Diabetic"
+          });
+        });
+        //----------------------
+        // End of event handling
+        //----------------------
 
-})
+      })
     }
   </script>
 
