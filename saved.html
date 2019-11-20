@@ -5,6 +5,8 @@
   <title>Feelin Vegan</title>
   <meta charset="utf-8" />
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
@@ -54,23 +56,6 @@
 
 
   <style>
-    .dropdown {
-      position: absolute;
-      margin-top: 100px;
-      margin-left: 50px;
-    }
-
-    #dropdownMenu1 {
-      padding: 4% 10%;
-      font-size: 40pt;
-    }
-
-    .dropdown-menu {
-      font-size: 40pt;
-    }
-
-
-
     head {
       margin: 0px;
       position: absolute;
@@ -143,21 +128,6 @@
     }
 
 
-    #identityText {
-      display: inline-block;
-      margin-left: 15%;
-      margin-top: calc(15% - 43px);
-
-      font-family: "Montserrat";
-      font-style: normal;
-      font-weight: normal;
-      font-size: 45pt;
-      line-height: 88px;
-
-      color: #000000;
-    }
-
-
     /* Home button */
     #homeButton {
       position: absolute;
@@ -215,34 +185,6 @@
       top: 200px;
       left: 310px;
     }
-
-    #savedRecipes {
-      margin-top: 10vh;
-    }
-
-    #recipeHistory {
-      margin-top: 7vh;
-    }
-
-    .savedStuff {
-      width: 100vw;
-      height: 20vh;
-      overflow: auto;
-      font-size: 40pt;
-      text-align: center;
-
-
-      background-color: #efefef;
-      //background: url(./images/protienButtonBackground.jpg);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      filter: brightness(0.7);
-    }
-
-    .savedStuffText {
-      margin-top: calc(10vh - 40px);
-    }
   </style>
 
   <script>
@@ -272,29 +214,10 @@
   <div id=content>
 
     <header>
-      <h1 id="chooseASnack">My Profile</h1>
+      <h1 id="chooseASnack">Saved Recipes</h1>
     </header>
 
 
-    <span id="identityText">I am a: </span>
-    <div class="dropdown" style="display: inline-block">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        <span id=identityTag></span>
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <a class="dropdown-item" href="#!">Diabetic</a>
-        <a class="dropdown-item" href="#!">Ketogenic</a>
-      </div>
-    </div>
-
-    <div id=savedRecipes class=savedStuff>
-      <p class="savedStuffText">Saved Recipes</p>
-    </div>
-
-    <div id=recipeHistory class=savedStuff>
-      <p class="savedStuffText">Recipe History</p>
-    </div>
 
     <div id=menuBar>
       <div id=profileButton></div>
@@ -304,84 +227,151 @@
 
   </div>
 
-  <script>
-    // Initialize the FirebaseUI Widget using Firebase.
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-    var uiConfig = {
-      callbacks: {
-        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-          // User successfully signed in.
-          // Return type determines whether we continue the redirect automatically
-          // or whether we leave that to developer to handle.
-          return true;
-        },
-        uiShown: function () {
-          // The widget is rendered.
-          // Hide the loader.
-          document.getElementById('loader').style.display = 'none';
-        }
-      },
-      // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-      signInFlow: 'popup',
-      signInSuccessUrl: '<url-to-redirect-to-on-success>',
-      signInOptions: [
-        // Leave the lines as is for the providers you want to offer your users.
-        //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        //firebase.auth.GithubAuthProvider.PROVIDER_ID,
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        //firebase.auth.PhoneAuthProvider.PROVIDER_ID
-      ],
-      // Terms of service url.
-      tosUrl: '<your-tos-url>',
-      // Privacy policy url.
-      privacyPolicyUrl: '<main.html>'
-    };
-
-    // The start method will wait until the DOM is loaded.
-    ui.start('#firebaseui-auth-container', uiConfig);
-  </script>
+ 
 
   <script>
-    function setUserIdentity(n) {
-      firebase.auth().onAuthStateChanged(function (user) {
-        db.collection("users/").doc(user.uid)
-          .onSnapshot(function (d) {
-            console.log("Current data: ", d.data());
-            if (d.get("isA") != null)
-              x = d.data()["isA"];
-            else
-              x = "________"; // user has not added tag yet
-            console.log(x);
-            document.getElementById("identityTag").innerHTML = x;
-          });
-      })
-    }
-    
-    $(document).ready(setUserIdentity());
+    function createBody() {
+      $("header").after(`<div id="scoreboard"></div>`);
 
-    function setAddListener() {
-      document.getElementById("addBtn").addEventListener("click", function (e) {
+      var scoreboardStyle = {
+        "background-color": "#FFFFFF",
+        "margin": "0px",
+        "border": "0px",
+        "width": "100vw",
+        "height": "64vh",
+        "maxWidth": "100vw",
+        maxHeight: "64vh",
+        "font-size": "42px",
+        "font-family": "Montserrat",
+        "color": "#000000",
+        "display": "inline-block"
+      };
 
-        //---------------------------
-        // Event Handler begins here
-        //---------------------------
-        firebase.auth().onAuthStateChanged(function (user) {
-          var userRef = db.collection('users').doc(user.uid);
+      $("#scoreboard").css(scoreboardStyle);
 
-          // add a date to the history sub-collection
-          userRef.collection("history").add({
-            date: firebase.firestore.FieldValue.serverTimestamp()
-          });
+      $("#scoreboard").append(`
+        <div id=4 class=runner></div>
+        <div id=5 class=runner></div>
+        <div id=6 class=runner></div>
+        <div id=7 class=runner></div>
+        <div id=8 class=runner></div>
+      `);
+
+      var img = [
+        "src='./images/josefu.png'",
+        "src='./images/caesar.jpg'",
+        "src='./images/speedwagon.png'",
+        "src='./images/lisalisa.png'",
+        "src='./images/stroheim.png'"
+      ];
+
+      var runnerImageStyle = {
+        "position": "absolute",
+        "width": "130px",
+        "height": "130px",
+        "margin-top": "20px",
+        "margin-left": "30px",
+        "clip-path": "circle(50% at 50% 50%)"
+      };
+
+      var runnerNames = [
+        "Joseph Joestar",
+        "Caesar Zeppeli",
+        "Robert Speedwagon",
+        "Lisa Lisa",
+        "Rudol von Stroheim"
+      ]
+
+
+      var recipes = "asda";
+      //var user = firebase.auth().currentUser;
+
+      //if (user) {
+      //  recipes = db.collection("users").doc("60KmMJlqRfgLurg09ZEBJPONW1S2").data().saved;
+      //  console.log(recipes);
+      //} else {
+      //  console.log("NOT LOGGED IN");
+      //}
+
+      var user = firebase.auth().currentUser;
+      
+      if (user != null) {
+        user.providerData.forEach(function (profile) {
+          console.log("Sign-in provider: " + profile.providerId);
+          console.log("  Provider-specific UID: " + profile.uid);
+          console.log("  Name: " + profile.displayName);
+          console.log("  Email: " + profile.email);
+          console.log("  Photo URL: " + profile.photoURL);
         });
-        //----------------------
-        // End of event handling
-        //----------------------
+      }
 
-      })
+
+
+      var runnerNameStyles = {
+        "position": "absolute",
+        "font-weight": "bold",
+        "font-size": "28pt",
+        "margin-left": "180px",
+        "margin-top": "60px"
+      }
+
+      var followingStyle = {
+        "position": "absolute",
+        "margin-left": "680px",
+        "background-color": "rgb(254, 245, 246)",
+        "border-radius": "100px",
+        "width": "250px",
+        "height": "100px",
+        //"border": "2px solid",
+        "transform": "translateY(-85px)"
+      }
+
+      var followingTextStyle = {
+        "font-size": "28pt",
+        "color": "#f06c7b",
+        "position": "absolute",
+        "margin-top": "20px",
+        "margin-left": "35px"
+      }
+
+
+      let i = 1;
+      $(".runner").each(function (index, elem) {
+
+
+        //i used an id here for example, its not needed and should use a class
+        $(elem).append("<img id='runnerimg" + index + "'" + img[index] + ">");
+        $("#runnerimg" + index).css(runnerImageStyle);
+
+        $(elem).append("<span class=runnerName>" + runnerNames[index] + "</span>");
+
+        i++;
+      });
+
+      $(".runnerName").css(runnerNameStyles);
+
+      var runnerNumStyle = {
+        "font-weight": "bold",
+        "font-size": "33pt",
+        "display": "inline-block",
+        "margin-top": "60px",
+        "margin-left": "40px",
+      }
+
+      $(".runnerNum").css(runnerNumStyle);
+
+      var runnerStyle = {
+        "border": "1px solid #b4b4b4",
+        "height": "185px",
+        "display": "block",
+      }
+
+      $(".runner").css(runnerStyle);
+
+
     }
+
+    $(document).ready(createBody());
   </script>
 
 </body>
