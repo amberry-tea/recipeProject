@@ -16,43 +16,44 @@
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
   <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-  
-    <!------------------------------------------------------------------------------>
-    <!-- Optional styles and scripts of your own                                  -->
-    <!------------------------------------------------------------------------------>
-    <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/script.js"></script>
 
-    <script>
-      const firebaseConfig = {
-  apiKey: "AIzaSyCe5qVI7blspULFqLJ1QIhoGnDnrB7vJwc",
-  authDomain: "recipeproject-ba288.firebaseapp.com",
-  databaseURL: "https://recipeproject-ba288.firebaseio.com",
-  projectId: "recipeproject-ba288",
-  storageBucket: "recipeproject-ba288.appspot.com",
-  messagingSenderId: "199394858198",
-  appId: "1:199394858198:web:d5fa1bd2f982ac14d92577",
-  measurementId: "G-RFT5692BZ9"
-};
-      
+  <!------------------------------------------------------------------------------>
+  <!-- Optional styles and scripts of your own                                  -->
+  <!------------------------------------------------------------------------------>
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="scripts/script.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCe5qVI7blspULFqLJ1QIhoGnDnrB7vJwc",
+      authDomain: "recipeproject-ba288.firebaseapp.com",
+      databaseURL: "https://recipeproject-ba288.firebaseio.com",
+      projectId: "recipeproject-ba288",
+      storageBucket: "recipeproject-ba288.appspot.com",
+      messagingSenderId: "199394858198",
+      appId: "1:199394858198:web:d5fa1bd2f982ac14d92577",
+      measurementId: "G-RFT5692BZ9"
+    };
+
 
     firebase.initializeApp(firebaseConfig);
-      var db = firebase.firestore();
+    var db = firebase.firestore();
   </script>
 
   <style>
-    body{
+    body {
       margin: 0px;
       border: 0px;
-            
+
     }
-    
+
     script {
       display: none;
     }
+
     /* background color */
     #content {
-      
+
       width: 100vw;
       height: 100vh;
       margin: 0px;
@@ -101,7 +102,7 @@
 
       color: #FFFFFF;
     }
-    
+
     #currentLocation {
       display: block;
       text-align: center;
@@ -170,7 +171,7 @@
     #fruitsVeggiesBackground {
       width: 100vw;
       height: 17vh;
-      
+
       border-top: 7px solid #FFE99c;
       background-position: center;
       background-repeat: no-repeat;
@@ -203,7 +204,7 @@
       margin-top: calc(17vh/2 - 35px);
       display: block;
       text-align: center;
-      
+
 
       font-family: Montserrat;
       font-style: normal;
@@ -244,7 +245,7 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
-      
+
       filter: brightness(.9);
       border: 7px solid #80D070;
     }
@@ -262,7 +263,7 @@
       background-repeat: no-repeat;
       background-size: contain;
     }
-    
+
     /* Checkmark button */
     #checkmarkButton {
       width: calc(80px * 2.37);
@@ -283,10 +284,10 @@
     }
 
     #skipText {
-      display:block;
-      text-align:center;
+      display: block;
+      text-align: center;
       margin-top: calc(50% - 40px);
-      
+
     }
 
     #searchButton {
@@ -306,14 +307,13 @@
 
 
     }
-    
+
     #firebasecontainer {
       position: absolute;
       display: block;
       top: 200px;
       left: 310px;
     }
-    
   </style>
 
   <script>
@@ -335,27 +335,30 @@
 </head>
 
 <body>
-  <!--
+
   <div id=firebasecontainer>
-<div id="firebaseui-auth-container"></div>
-  <div id="loader">Loading...</div>
-    </div> -->
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
+  </div>
   <div id=content>
-    
-    <header><div id=logoCircle></div><h1 id="chooseASnack">CHOOSE A SNACK</h1></header>
-    
+
+    <header>
+      <div id=logoCircle></div>
+      <h1 id="chooseASnack">CHOOSE A SNACK</h1>
+    </header>
+
     <h1 id="headerCategory"><span id="currentLocation">Category</span></h1>
     <div id=fruitsVeggiesBackground><span id=fruitsVeggiesText>Fruits and Vegetables</span></div>
     <div id=grainsButton><span id=grainsText>Grains</span></div>
     <div id=protienButton><span id=protienNutsText>Protien and Nuts</span></div>
-    
+
     <div id=menuBar>
-    <div id=profileButton></div>
-    <div id=homeButton></div>
-    <div id=searchButton></div>
+      <div id=profileButton></div>
+      <div id=homeButton></div>
+      <div id=searchButton></div>
     </div>
     <div id=checkmarkButton><span id=skipText>Skip</span></div>
-    
+
   </div>
 
   <script>
@@ -364,13 +367,13 @@
 
     var uiConfig = {
       callbacks: {
-        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
           return true;
         },
-        uiShown: function() {
+        uiShown: function () {
           // The widget is rendered.
           // Hide the loader.
           document.getElementById('loader').style.display = 'none';
@@ -396,6 +399,33 @@
 
     // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);
+
+
+
+    createUser();
+
+    function createUser() {
+
+      let history = [],
+
+      // if the current user logged in user
+      // is authenticated, then grab "uid" "displayName" and "email"
+      // use "set()" with merge (if document did not exist it will be created)
+      firebase.auth().onAuthStateChanged(function (user) {
+        db.collection("users").doc(user.uid).set({
+          "name": user.displayName,
+          "email": user.email,
+          "history": 
+          
+        }, {
+          merge: true
+        });
+      });
+    }
+
+
   </script>
 
-</body></html>
+</body>
+
+</html>
