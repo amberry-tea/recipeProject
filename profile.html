@@ -5,6 +5,18 @@
   <title>Feelin Vegan</title>
   <meta charset="utf-8" />
 
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
   <!--Include firebase related things -->
@@ -16,49 +28,74 @@
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
   <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-  
-    <!------------------------------------------------------------------------------>
-    <!-- Optional styles and scripts of your own                                  -->
-    <!------------------------------------------------------------------------------>
-    <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/script.js"></script>
 
-    <script>
-      const firebaseConfig = {
-  apiKey: "AIzaSyCe5qVI7blspULFqLJ1QIhoGnDnrB7vJwc",
-  authDomain: "recipeproject-ba288.firebaseapp.com",
-  databaseURL: "https://recipeproject-ba288.firebaseio.com",
-  projectId: "recipeproject-ba288",
-  storageBucket: "recipeproject-ba288.appspot.com",
-  messagingSenderId: "199394858198",
-  appId: "1:199394858198:web:d5fa1bd2f982ac14d92577",
-  measurementId: "G-RFT5692BZ9"
-};
-      
+  <!------------------------------------------------------------------------------>
+  <!-- Optional styles and scripts of your own                                  -->
+  <!------------------------------------------------------------------------------>
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="scripts/script.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCe5qVI7blspULFqLJ1QIhoGnDnrB7vJwc",
+      authDomain: "recipeproject-ba288.firebaseapp.com",
+      databaseURL: "https://recipeproject-ba288.firebaseio.com",
+      projectId: "recipeproject-ba288",
+      storageBucket: "recipeproject-ba288.appspot.com",
+      messagingSenderId: "199394858198",
+      appId: "1:199394858198:web:d5fa1bd2f982ac14d92577",
+      measurementId: "G-RFT5692BZ9"
+    };
+
 
     firebase.initializeApp(firebaseConfig);
-      var db = firebase.firestore();
+    var db = firebase.firestore();
+
   </script>
 
+
   <style>
-    body{
-      margin: 0px;
-      border: 0px;
-            
+    .dropdown {
+      position: absolute;
+      margin-top: 100px;
+      margin-left: 50px;
     }
     
+    #dropdownMenu1 {
+      padding: 4% 10%;
+      font-size: 40pt;
+    }
+    
+    .dropdown-menu {
+      font-size: 40pt;
+    }
+    
+    
+
+    head {
+      margin: 0px;
+      position: absolute;
+    }
+
+    body {
+      margin: 0px;
+      border: 0px;
+
+    }
+
     script {
       display: none;
     }
+
     /* background color */
     #content {
-      
+
       width: 100vw;
       height: 100vh;
       margin: 0px;
       border: 0px;
 
-      background: #888888;
+      background: #EEEEEE;
     }
 
     header {
@@ -72,45 +109,13 @@
       border-right: 0px;
 
       background: #FFFFFF;
-    }
-
-    /* logo circle */
-    #logoCircle {
-      position: relative;
-      display: inline-block;
-      width: 151px;
-      height: 151px;
-      left: 40px;
-      top: calc(50% - 75px);
-
-      border-radius: 100%;
-
-      background: #87D37C;
-    }
-
-    /* Header: "Category" */
-    #headerCategory {
-      margin: 0px;
-      width: 100vw;
-      height: 8.3vh;
-
-      font-family: Montserrat;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 45pt;
-
-      color: #FFFFFF;
-    }
-    
-    #currentLocation {
-      display: block;
-      text-align: center;
+      overflow: auto;
     }
 
     /* Header: "CHOOSE A SNACK" */
     #chooseASnack {
-      display: inline-block;
-      margin-left: 10%;
+      display: block;
+      text-align: center;
       margin-top: calc(10% - 43px);
 
       font-family: "Montserrat";
@@ -120,35 +125,8 @@
       line-height: 88px;
 
       color: #000000;
-    }
 
 
-    /* protein and nuts button */
-    #protienButton {
-      width: 100vw;
-      height: 17vh;
-      overflow: auto;
-
-      background: url(./images/protienButtonBackground.jpg);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      filter: brightness(0.7);
-    }
-
-
-    /* grains button */
-    #grainsButton {
-      width: 100vw;
-      height: 17vh;
-      display: block;
-      overflow: auto;
-
-      background: url(./images/grainsButtonBackground.jpg);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      filter: brightness(0.7);
     }
 
 
@@ -166,71 +144,20 @@
     }
 
 
-    /* fruits and veggies background */
-    #fruitsVeggiesBackground {
-      width: 100vw;
-      height: 17vh;
-      
-      border-top: 7px solid #FFE99c;
-      background-position: center;
-      background-repeat: no-repeat;
-      background: url(./images/veggiesButtonBackground.jpg);
-      filter: brightness(0.7);
-    }
+    #identityText {
+      display: inline-block;
+      margin-left: 15%;
+      margin-top: calc(15% - 43px);
 
-
-    /* fruits and veggies */
-    #fruitsVeggiesText {
-      margin-top: calc(17vh/2 - 35px);
-      display: block;
-      text-align: center;
-
-      font-family: Montserrat;
+      font-family: "Montserrat";
       font-style: normal;
-      font-weight: 1000;
-      font-size: 40pt;
+      font-weight: normal;
+      font-size: 45pt;
+      line-height: 88px;
 
-      text-shadow: 5px 4px #000000;
-
-
-      color: #FFFFFF;
+      color: #000000;
     }
 
-
-
-    /* protein and nuts */
-    #protienNutsText {
-      margin-top: calc(17vh/2 - 35px);
-      display: block;
-      text-align: center;
-      
-
-      font-family: Montserrat;
-      font-style: normal;
-      font-weight: 800;
-      font-size: 40pt;
-
-      text-shadow: 5px 4px #000000;
-
-      color: #FFFFFF;
-    }
-
-
-    /* grains */
-    #grainsText {
-      margin-top: calc(17vh/2 - 35px);
-      display: block;
-      text-align: center;
-
-      font-family: Montserrat;
-      font-style: normal;
-      font-weight: 800;
-      font-size: 40pt;
-
-      text-shadow: 5px 4px #000000;
-
-      color: #FFFFFF;
-    }
 
     /* Home button */
     #homeButton {
@@ -244,7 +171,7 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
-      
+
       filter: brightness(.9);
       border: 7px solid #80D070;
     }
@@ -262,32 +189,8 @@
       background-repeat: no-repeat;
       background-size: contain;
     }
-    
-    /* Checkmark button */
-    #checkmarkButton {
-      width: calc(80px * 2.37);
-      height: calc(74px * 2.37);
-      left: calc(167px * 2.37);
-      top: calc(580px * 2.37);
 
-      background: #FFC46C;
 
-      font-family: Montserrat;
-      font-style: normal;
-      font-weight: 800;
-      font-size: calc(20px * 2.37);
-      line-height: calc(24px * 2.37);
-
-      border-radius: 100%;
-      overflow: auto;
-    }
-
-    #skipText {
-      display:block;
-      text-align:center;
-      margin-top: calc(50% - 40px);
-      
-    }
 
     #searchButton {
       /* Search recipe button */
@@ -306,7 +209,7 @@
 
 
     }
-    
+
     #firebasecontainer {
       position: absolute;
       display: block;
@@ -314,6 +217,33 @@
       left: 310px;
     }
     
+    #savedRecipes{
+      margin-top: 10vh;
+    }
+    
+    #recipeHistory {
+      margin-top: 7vh;
+    }
+
+    .savedStuff {
+      width: 100vw;
+      height: 20vh;
+      overflow: auto;
+      font-size: 40pt;
+      text-align: center;
+      
+
+      background-color: #efefef;
+      //background: url(./images/protienButtonBackground.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      filter: brightness(0.7);
+    }
+    
+    .savedStuffText {
+      margin-top: calc(10vh - 40px);
+    }
   </style>
 
   <script>
@@ -331,31 +261,48 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
+
   </script>
 </head>
 
 <body>
   <!--
   <div id=firebasecontainer>
-<div id="firebaseui-auth-container"></div>
+  <div id="firebaseui-auth-container"></div>
   <div id="loader">Loading...</div>
     </div> -->
   <div id=content>
+
+    <header>
+      <h1 id="chooseASnack">My Profile</h1>
+    </header>
+
     
-    <header><div id=logoCircle></div><h1 id="chooseASnack">CHOOSE A SNACK</h1></header>
+      <span id="identityText">I am a: </span>
+      <div class="dropdown" style="display: inline-block">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <a class="dropdown-item" href="#!">Diabetic</a>
+          <a class="dropdown-item" href="#!">Ketogenic</a>
+        </div>
+      </div>
     
-    <h1 id="headerCategory"><span id="currentLocation">Category</span></h1>
-    <div id=fruitsVeggiesBackground><span id=fruitsVeggiesText>Fruits and Vegetables</span></div>
-    <div id=grainsButton><span id=grainsText>Grains</span></div>
-    <div id=protienButton><span id=protienNutsText>Protien and Nuts</span></div>
-    
-    <div id=menuBar>
-    <div id=profileButton></div>
-    <div id=homeButton></div>
-    <div id=searchButton></div>
+    <div id=savedRecipes class=savedStuff>
+    <p class="savedStuffText">Saved Recipes</p>
     </div>
-    <div id=checkmarkButton><span id=skipText>Skip</span></div>
     
+    <div id=recipeHistory class=savedStuff>
+    <p class="savedStuffText">Recipe History</p>
+    </div>
+
+    <div id=menuBar>
+      <div id=profileButton></div>
+      <div id=homeButton></div>
+      <div id=searchButton></div>
+    </div>
+
   </div>
 
   <script>
@@ -396,6 +343,9 @@
 
     // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);
+
   </script>
 
-</body></html>
+</body>
+
+</html>
