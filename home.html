@@ -59,7 +59,7 @@
       margin: 0px;
       border: 0px;
 
-      background: #888888;
+      background: #999999;
     }
 
     header {
@@ -93,7 +93,7 @@
     #headerCategory {
       margin: 0px;
       width: 100vw;
-      height: 8.3vh;
+      height: 6vh;
 
       font-family: Montserrat;
       font-style: normal;
@@ -106,6 +106,7 @@
     #currentLocation {
       display: block;
       text-align: center;
+      margin-top: 60px;
     }
 
     /* Header: "CHOOSE A SNACK" */
@@ -134,7 +135,7 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      filter: brightness(0.7);
+      filter: brightness(.85);
     }
 
 
@@ -149,7 +150,7 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      filter: brightness(0.7);
+      filter: brightness(.85);
     }
 
 
@@ -176,7 +177,7 @@
       background-position: center;
       background-repeat: no-repeat;
       background: url(./images/veggiesButtonBackground.jpg);
-      filter: brightness(0.7);
+      filter: brightness(.85);
     }
 
 
@@ -266,10 +267,11 @@
 
     /* Checkmark button */
     #checkmarkButton {
-      width: calc(80px * 2.37);
-      height: calc(74px * 2.37);
-      left: calc(167px * 2.37);
-      top: calc(580px * 2.37);
+      position: absolute;
+      width: 250px;
+      height: 120px;
+      margin-left: 70vw;
+      margin-top: 5vh;
 
       background: #FFC46C;
 
@@ -279,14 +281,14 @@
       font-size: calc(20px * 2.37);
       line-height: calc(24px * 2.37);
 
-      border-radius: 100%;
+      border-radius: 20px;
       overflow: auto;
     }
 
     #skipText {
       display: block;
       text-align: center;
-      margin-top: calc(50% - 40px);
+      margin-top: calc(50% - 90px);
 
     }
 
