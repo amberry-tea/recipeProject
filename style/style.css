@@ -66,6 +66,7 @@ header {
   display: inline-block;
   margin-left: 10%;
   margin-top: calc(10% - 43px);
+  padding-top: 60px;
 
   font-family: "Montserrat";
   font-style: normal;
@@ -76,6 +77,18 @@ header {
   color: #000000;
 }
 
+/* Logo inside the header */
+#logo {
+  float: left;
+  width: 22%;
+  padding-top: 15pt;
+}
+
+
+#logoImg {
+  width: 220pt;
+  height: auto;
+}
 
 
 /* Home button */
@@ -123,7 +136,6 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-
 
 }
 
@@ -356,14 +368,14 @@ header {
 #logoCircle {
   position: relative;
   display: inline-block;
-  width: 151px;
+  /* width: 151px;
   height: 151px;
   left: 40px;
   top: calc(50% - 75px);
 
   border-radius: 100%;
 
-  background: #87D37C;
+  background: #87D37C; */
 }
 
 /* Header: "Category" */
