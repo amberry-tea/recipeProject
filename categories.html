@@ -2,10 +2,159 @@
 <html lang="en">
 
 <head>
-  <title>Categories</title>
+  <title>Feelin Vegan</title>
   <meta charset="utf-8" />
-  </head>
-  <body>
-    <h1>Choose a category of food:</h1>
-    <h3>Fruit, Vegetable, Meat Alternatives, Grain</h3>
-</body></html>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+  <!--Include firebase related things -->
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  <!------------------------------------------------------------------------------>
+  <!-- Optional styles and scripts of your own                                  -->
+  <!------------------------------------------------------------------------------>
+  <link rel="stylesheet" href="style/style.css">
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCe5qVI7blspULFqLJ1QIhoGnDnrB7vJwc",
+      authDomain: "recipeproject-ba288.firebaseapp.com",
+      databaseURL: "https://recipeproject-ba288.firebaseio.com",
+      projectId: "recipeproject-ba288",
+      storageBucket: "recipeproject-ba288.appspot.com",
+      messagingSenderId: "199394858198",
+      appId: "1:199394858198:web:d5fa1bd2f982ac14d92577",
+      measurementId: "G-RFT5692BZ9"
+    };
+
+
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+  </script>
+
+  <style>
+    
+  </style>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyA9xoQBnrfkzLoaRksE6qVLNuEqcav-Ji0",
+      authDomain: "test-bd65b.firebaseapp.com",
+      databaseURL: "https://test-bd65b.firebaseio.com",
+      projectId: "test-bd65b",
+      storageBucket: "test-bd65b.appspot.com",
+      messagingSenderId: "3734598502",
+      appId: "1:3734598502:web:7073bb1f259a6e65420ea7",
+      measurementId: "G-YH52R5ZEP4"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+</head>
+
+<body>
+
+  <div id=firebasecontainer>
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
+  </div>
+  <div id=content>
+
+    <header>
+      <div id=logoCircle></div>
+      <h1 id="chooseASnack">CHOOSE A SNACK</h1>
+    </header>
+
+    <h1 id="headerCategory"><span id="startLocation">Category</span></h1>
+    <div id=fruitsVeggiesBackground><span id=fruitsVeggiesText>Fruits and Vegetables</span></div>
+    <div id=grainsButton><span id=grainsText>Grains</span></div>
+    <div id=protienButton><span id=protienNutsText>Protien and Nuts</span></div>
+
+    <div id=menuBar>
+      <div id=profileButton></div>
+      <div id=homeButton></div>
+      <div id=searchButton></div>
+    </div>
+    <div id=checkmarkButton><span id=skipText>Skip</span></div>
+
+  </div>
+
+  <script>
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+    var uiConfig = {
+      callbacks: {
+        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+          // User successfully signed in.
+          // Return type determines whether we continue the redirect automatically
+          // or whether we leave that to developer to handle.
+          return true;
+        },
+        uiShown: function () {
+          // The widget is rendered.
+          // Hide the loader.
+          document.getElementById('loader').style.display = 'none';
+        }
+      },
+      // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+      signInFlow: 'popup',
+      signInSuccessUrl: '<url-to-redirect-to-on-success>',
+      signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        //firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        //firebase.auth.PhoneAuthProvider.PROVIDER_ID
+      ],
+      // Terms of service url.
+      tosUrl: '<your-tos-url>',
+      // Privacy policy url.
+      privacyPolicyUrl: '<main.html>'
+    };
+
+    // The start method will wait until the DOM is loaded.
+    ui.start('#firebaseui-auth-container', uiConfig);
+
+
+
+    createUser();
+
+    function createUser() {
+
+      let history = [],
+
+      // if the current user logged in user
+      // is authenticated, then grab "uid" "displayName" and "email"
+      // use "set()" with merge (if document did not exist it will be created)
+      firebase.auth().onAuthStateChanged(function (user) {
+        db.collection("users").doc(user.uid).set({
+          "name": user.displayName,
+          "email": user.email,
+          "history": 
+          
+        }, {
+          merge: true
+        });
+      });
+    }
+
+
+  </script>
+   <script src="script/redir.js"></script>
+
+</body>
+
+</html>

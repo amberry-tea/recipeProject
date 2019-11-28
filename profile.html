@@ -52,198 +52,7 @@
     var db = firebase.firestore();
   </script>
 
-
-  <style>
-    .dropdown {
-      position: absolute;
-      margin-top: 100px;
-      margin-left: 50px;
-    }
-
-    #dropdownMenu1 {
-      padding: 4% 10%;
-      font-size: 40pt;
-    }
-
-    .dropdown-menu {
-      font-size: 40pt;
-    }
-
-
-
-    head {
-      margin: 0px;
-      position: absolute;
-    }
-
-    body {
-      margin: 0px;
-      border: 0px;
-
-    }
-
-    script {
-      display: none;
-    }
-
-    /* background color */
-    #content {
-
-      width: 100vw;
-      height: 100vh;
-      margin: 0px;
-      border: 0px;
-
-      background: #EEEEEE;
-    }
-
-    header {
-      width: 100vw;
-      height: 12vh;
-      max-width: 100vw;
-      max-height: 12vh;
-      border: 9px solid #ffbc6c;
-      border-top: 0px;
-      border-left: 0px;
-      border-right: 0px;
-
-      background: #FFFFFF;
-      overflow: auto;
-    }
-
-    /* Header: "CHOOSE A SNACK" */
-    #chooseASnack {
-      display: block;
-      text-align: center;
-      margin-top: calc(10% - 43px);
-
-      font-family: "Montserrat";
-      font-style: normal;
-      font-weight: normal;
-      font-size: 50pt;
-      line-height: 88px;
-
-      color: #000000;
-
-
-    }
-
-
-    /* Menu bar */
-    #menuBar {
-      position: absolute;
-      width: calc(414px * 2.37);
-      height: calc(60px * 2.37);
-      left: 0px;
-      top: calc(676px * 2.37);
-      padding-top: 20px;
-
-
-      background: #87D37C;
-    }
-
-
-    #identityText {
-      display: inline-block;
-      margin-left: 15%;
-      margin-top: calc(15% - 43px);
-
-      font-family: "Montserrat";
-      font-style: normal;
-      font-weight: normal;
-      font-size: 45pt;
-      line-height: 88px;
-
-      color: #000000;
-    }
-
-
-    /* Home button */
-    #homeButton {
-      position: absolute;
-      display: inline-block;
-      left: calc(50vw - 48px);
-      width: 95px;
-      height: 95px;
-
-      background: url(./images/home.png);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-
-      filter: brightness(.9);
-      border: 7px solid #80D070;
-    }
-
-    /* Profile button */
-    #profileButton {
-      position: absolute;
-      display: inline-block;
-      left: calc(73vw - 48px);
-      width: 95px;
-      height: 95px;
-
-      background: url(./images/user.png);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-
-
-
-    #searchButton {
-      /* Search recipe button */
-
-      position: absolute;
-      display: inline-block;
-      left: calc(27vw - 48px);
-      width: 95px;
-      height: 95px;
-
-
-      background: url(./images/search.png);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-
-
-    }
-
-    #firebasecontainer {
-      position: absolute;
-      display: block;
-      top: 200px;
-      left: 310px;
-    }
-
-    #savedRecipes {
-      margin-top: 10vh;
-    }
-
-    #recipeHistory {
-      margin-top: 7vh;
-    }
-
-    .savedStuff {
-      width: 100vw;
-      height: 20vh;
-      overflow: auto;
-      font-size: 40pt;
-      text-align: center;
-
-
-      background-color: #efefef;
-      //background: url(./images/protienButtonBackground.jpg);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      filter: brightness(0.7);
-    }
-
-    .savedStuffText {
-      margin-top: calc(10vh - 40px);
-    }
-  </style>
+<link rel="stylesheet" type="text/css" href="style/style.css"/>
 
   <script>
     // Your web app's Firebase configuration
@@ -269,7 +78,7 @@
   <div id="firebaseui-auth-container"></div>
   <div id="loader">Loading...</div>
     </div> -->
-  <div id=content>
+  <div id=profileContent>
 
     <header>
       <h1 id="chooseASnack">My Profile</h1>
@@ -404,6 +213,8 @@
       })
     }
   </script>
+
+<script src="script/redir.js"></script>
 
 </body>
 

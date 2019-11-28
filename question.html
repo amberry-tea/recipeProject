@@ -20,7 +20,11 @@
   <!------------------------------------------------------------------------------>
   <!-- Optional styles and scripts of your own                                  -->
   <!------------------------------------------------------------------------------>
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="scripts/script.js"></script>
+
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
 
   <script>
     const firebaseConfig = {
@@ -34,12 +38,12 @@
       measurementId: "G-RFT5692BZ9"
     };
 
+
     firebase.initializeApp(firebaseConfig);
     var db = firebase.firestore();
   </script>
 
   <link rel="stylesheet" type="text/css" href="style/style.css" />
-  
 
   <script>
     // Your web app's Firebase configuration
@@ -74,14 +78,12 @@
         <span id="currentLocation">Ingredient</span></h1>
     </div>
 
-    <div class=potato>
-      <div id=potatoButton></div><span id=potatoText>Potato</span>
+    <div class=questionStuff>
+      <p class="questionStuffText">I want it cooked!</p>
     </div>
-    <div class=potato>
-      <div id=potatoButton></div><span id=potatoText>Carrot</span>
-    </div>
-    <div class=potato>
-      <div id=potatoButton></div><span id=potatoText>Potato</span>
+
+    <div class=questionStuff>
+      <p class="questionStuffText">I want it fresh!</p>
     </div>
 
     <div id=menuBar>

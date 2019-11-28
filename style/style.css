@@ -1,0 +1,778 @@
+body {
+  border: 0px;
+  margin: 0px;
+}
+
+.blur {
+  filter: blur(2px);
+}
+
+#dream {
+  position: fixed;
+  text-align: center;
+  font-size: 55pt;
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgb(152, 226, 141);
+  padding: 1px;
+  margin-top: calc(50vh - 14vh - 22vh);
+}
+
+.dreamText {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 35pt;
+  margin: 25px 100px;
+}
+
+#dreamTitle {
+  margin-bottom: 25px;
+}
+
+#dreamUnderline {
+  width: 70vw;
+  height: 9px;
+  background-color: #ffbc6c;
+  margin: auto;
+}
+
+header {
+  width: 100vw;
+  height: 14vh;
+  max-width: 100vw;
+  max-height: 14vh;
+  border: 9px solid #ffbc6c;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+
+  background: #FFFFFF;
+}
+
+/* logo circle */
+#logoCircle {
+  position: relative;
+  display: inline-block;
+  width: 151px;
+  height: 151px;
+  left: 40px;
+  top: calc(50% - 75px);
+
+  border-radius: 100%;
+
+  background: #87D37C;
+}
+
+/* Header: "CHOOSE A SNACK" */
+#chooseASnack {
+  display: inline-block;
+  margin-left: 10%;
+  margin-top: calc(10% - 43px);
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50pt;
+  line-height: 88px;
+
+  color: #000000;
+}
+
+#menuBar {
+  height: calc(60px * 2.37);
+  clear: both;
+  padding-top: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+
+  background: #87D37C;
+}
+
+/* Home button */
+#homeButton {
+  position: absolute;
+  display: inline-block;
+  left: calc(50vw - 48px);
+  width: 95px;
+  height: 95px;
+
+  background: url(../images/home.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  filter: brightness(.9);
+  border: 7px solid #80D070;
+}
+
+/* Profile button */
+#profileButton {
+  position: absolute;
+  display: inline-block;
+  left: calc(73vw - 48px);
+  width: 95px;
+  height: 95px;
+
+  background: url(../images/user.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#searchButton {
+  /* Search recipe button */
+
+  position: absolute;
+  display: inline-block;
+  left: calc(27vw - 48px);
+  width: 95px;
+  height: 95px;
+
+
+  background: url(../images/search.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+
+}
+
+td {
+  font-size: 50px;
+}
+
+#lastDreamText {
+  margin-bottom: 75px;
+}
+
+.recipeText {
+  font-size: 30px;
+  display: block;
+}
+
+.recipeContainer {
+  margin: 40px;
+  padding: 40px;
+  font-family: "Open Sans";
+  border: 2px solid #AAAAAA;
+  background-color: #D0F0C0;
+}
+
+.runnerName {
+  font-weight: bold;
+  font-size: 38pt;
+  display: block;
+  text-align: center;
+}
+
+.runnerimg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.bodyContent {
+  background-color: #E0E0E0
+}
+
+@media screen and (min-width:1000px) {
+  header {
+    width: 100vw;
+    height: 10vh;
+    max-width: 100vw;
+    max-height: 10vh;
+    border: 4px solid #ffbc6c;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+
+    background: #FFFFFF;
+  }
+
+  /* logo circle */
+  #logoCircle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    left: 40px;
+    top: calc(50% - 30px);
+
+    border-radius: 100%;
+
+    background: #87D37C;
+  }
+
+  /* Header: "CHOOSE A SNACK" */
+  #chooseASnack {
+    display: inline-block;
+    margin-left: 30%;
+    margin-top: 0;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30pt;
+    line-height: 88px;
+
+    color: #000000;
+  }
+
+  #menuBar {
+    height: calc(60px);
+    clear: both;
+    padding-top: 8px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+
+    background: #87D37C;
+  }
+
+  /* Home button */
+  #homeButton {
+    position: absolute;
+    display: inline-block;
+    left: calc(50vw - 20px);
+    width: 40px;
+    height: 40px;
+
+    background: url(../images/home.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    filter: brightness(.9);
+    border: 7px solid #80D070;
+  }
+
+  /* Profile button */
+  #profileButton {
+    position: absolute;
+    display: inline-block;
+    left: calc(74vw - 20px);
+    width: 40px;
+    height: 40px;
+
+    background: url(../images/user.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  #searchButton {
+    /* Search recipe button */
+
+    position: absolute;
+    display: inline-block;
+    left: calc(27vw - 20px);
+    width: 40px;
+    height: 40px;
+
+
+    background: url(../images/search.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+
+  }
+
+  td {
+    font-size: 50px;
+  }
+
+  #lastDreamText {
+    margin-bottom: 75px;
+  }
+
+  .recipeText {
+    font-size: 15pt;
+    display: block;
+  }
+
+  .recipeContainer {
+    margin: 10px 1vw;
+    padding: 40px;
+    width: 39vw;
+    font-family: "Open Sans";
+    border: 2px solid #AAAAAA;
+    background-color: #D0F0C0;
+    display: inline-block;
+  }
+
+  .runnerName {
+    font-weight: bold;
+    font-size: 20pt;
+    display: block;
+    text-align: center;
+  }
+
+  .runnerimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  #dream {
+    position: fixed;
+    text-align: center;
+    font-size: 30pt;
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(152, 226, 141);
+    padding: 1px;
+    margin-top: calc(50vh - 14vh - 22vh);
+    width: 100%;
+  }
+
+  .dreamText {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20pt;
+    margin: 25px 100px;
+  }
+
+  #dreamTitle {
+    margin-bottom: 25px;
+  }
+}
+
+body {
+  margin: 0px;
+  border: 0px;
+}
+
+script {
+  display: none;
+}
+
+/* background color */
+#content {
+
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  border: 0px;
+
+  background: #999999;
+}
+
+header {
+  width: 100vw;
+  height: 14vh;
+  max-width: 100vw;
+  max-height: 14vh;
+  border: 9px solid #ffbc6c;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+
+  background: #FFFFFF;
+}
+
+/* logo circle */
+#logoCircle {
+  position: relative;
+  display: inline-block;
+  width: 151px;
+  height: 151px;
+  left: 40px;
+  top: calc(50% - 75px);
+
+  border-radius: 100%;
+
+  background: #87D37C;
+}
+
+/* Header: "Category" */
+#headerCategory {
+  margin: 0px;
+  width: 100vw;
+  height: 6vh;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 45pt;
+
+  color: #FFFFFF;
+}
+
+#startLocation {
+  display: block;
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* Header: "CHOOSE A SNACK" */
+#chooseASnack {
+  display: inline-block;
+  margin-left: 10%;
+  margin-top: calc(10% - 43px);
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50pt;
+  line-height: 88px;
+
+  color: #000000;
+}
+
+
+/* protein and nuts button */
+#protienButton {
+  width: 100vw;
+  height: 17vh;
+  overflow: auto;
+
+  background: url(../images/protienButtonBackground.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(.85);
+}
+
+
+/* grains button */
+#grainsButton {
+  width: 100vw;
+  height: 17vh;
+  display: block;
+  overflow: auto;
+
+  background: url(../images/grainsButtonBackground.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(.85);
+}
+
+
+/* Menu bar */
+#menuBar {
+  position: absolute;
+  width: calc(414px * 2.37);
+  height: calc(60px * 2.37);
+  left: 0px;
+  top: calc(676px * 2.37);
+  padding-top: 20px;
+
+
+  background: #87D37C;
+}
+
+
+/* fruits and veggies background */
+#fruitsVeggiesBackground {
+  width: 100vw;
+  height: 17vh;
+
+  border-top: 7px solid #FFE99c;
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url(../images/veggiesButtonBackground.jpg);
+  filter: brightness(.85);
+}
+
+
+/* fruits and veggies */
+#fruitsVeggiesText {
+  margin-top: calc(17vh/2 - 35px);
+  display: block;
+  text-align: center;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 1000;
+  font-size: 40pt;
+
+  text-shadow: 5px 4px #000000;
+
+
+  color: #FFFFFF;
+}
+
+
+
+/* protein and nuts */
+#protienNutsText {
+  margin-top: calc(17vh/2 - 35px);
+  display: block;
+  text-align: center;
+
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 40pt;
+
+  text-shadow: 5px 4px #000000;
+
+  color: #FFFFFF;
+}
+
+
+/* grains */
+#grainsText {
+  margin-top: calc(17vh/2 - 35px);
+  display: block;
+  text-align: center;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 40pt;
+
+  text-shadow: 5px 4px #000000;
+
+  color: #FFFFFF;
+}
+
+/* Home button */
+#homeButton {
+  position: absolute;
+  display: inline-block;
+  left: calc(50vw - 48px);
+  width: 95px;
+  height: 95px;
+
+  background: url(../images/home.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  filter: brightness(.9);
+  border: 7px solid #80D070;
+}
+
+/* Profile button */
+#profileButton {
+  position: absolute;
+  display: inline-block;
+  left: calc(73vw - 48px);
+  width: 95px;
+  height: 95px;
+
+  background: url(../images/user.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Checkmark button */
+#checkmarkButton {
+  position: absolute;
+  width: 250px;
+  height: 120px;
+  margin-left: 70vw;
+  margin-top: 5vh;
+
+  background: #FFC46C;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: calc(20px * 2.37);
+  line-height: calc(24px * 2.37);
+
+  border-radius: 20px;
+  overflow: auto;
+}
+
+#skipText {
+  display: block;
+  text-align: center;
+  margin-top: calc(50% - 90px);
+
+}
+
+#searchButton {
+  /* Search recipe button */
+
+  position: absolute;
+  display: inline-block;
+  left: calc(27vw - 48px);
+  width: 95px;
+  height: 95px;
+
+
+  background: url(../images/search.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+
+}
+
+#firebasecontainer {
+  position: absolute;
+  display: block;
+  top: 200px;
+  left: 310px;
+}
+
+#savedRecipes {
+  margin-top: 10vh;
+}
+
+#recipeHistory {
+  margin-top: 7vh;
+}
+
+.savedStuff {
+  width: 100vw;
+  height: 20vh;
+  overflow: auto;
+  font-size: 40pt;
+  text-align: center;
+
+
+  background-color: #efefef;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(0.7);
+}
+
+.savedStuffText {
+  margin-top: calc(10vh - 40px);
+}
+
+#identityText {
+  display: inline-block;
+  margin-left: 15%;
+  margin-top: calc(15% - 43px);
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 45pt;
+  line-height: 88px;
+
+  color: #000000;
+}
+
+.dropdown {
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 50px;
+}
+
+#dropdownMenu1 {
+  padding: 4% 10%;
+  font-size: 40pt;
+}
+
+.dropdown-menu {
+  font-size: 40pt;
+}
+
+#profileContent {
+
+
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  border: 0px;
+
+  background: #EEEEEE;
+
+}
+
+#potatoButton {
+  width: 15vh;
+  height: 15vh;
+  border-radius: 100%;
+  margin-top: 2.8vh;
+  float: left;
+  margin-left: 50px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url(../images/veggiesButtonBackground.jpg);
+  filter: brightness(.85);
+}
+
+
+/* fruits and veggies */
+#potatoText {
+  margin-top: calc(20vh/2 - 35px);
+  display: block;
+  text-align: left;
+  margin-left: 380px;
+  color: #000000;
+  margin-bottom: 100px;
+
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 1000;
+  font-size: 44pt;
+
+}
+
+.potato {
+  display: block;
+  overflow: auto;
+}
+
+#ingredientContent {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  border: 0px;
+
+  background: #CCCCCC;
+}
+
+#vegetableContent {
+
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  border: 0px;
+
+  background: #EEEEEE;
+}
+
+#subheader {
+height: 10vh;
+  background: #999999;
+  overflow: auto;
+  border-bottom: 7px solid #FFE99c;
+}
+
+#currentLocation {
+  display: block;
+  text-align: center;
+}
+
+#previousLocation {
+  font-size: 20pt;
+}
+
+.questionStuff {
+
+  width: 100vw;
+  height: 20vh;
+  overflow: auto;
+  font-size: 40pt;
+  text-align: center;
+
+
+  background-color: #BBBBBB;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(0.7);
+  margin-top: 100px;
+}
+
+.questionStuffText {
+  font-family: 'Open Sans', sans-serif;
+  margin-top: calc(10vh - 40px);
+}
+
