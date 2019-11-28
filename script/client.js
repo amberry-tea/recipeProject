@@ -50,7 +50,7 @@ function infiniteScroll() {
 
     var listElm = document.querySelector('#infinite-list');
 
-    // Add 20 items.
+    // Add items.
     var nextItem = 1;
     var actItem = 1;
     var loadMore = function () {
@@ -58,9 +58,10 @@ function infiniteScroll() {
         var div = $(".bodyContent");
         var t2 = "";
         div.append("<div>");
-
+        //if there are query params
         if (window.location.href.indexOf("?") > 0) {
             console.log("true");
+            //get where the ingredient is equal to the param
             db.collection("recipes").where("mainIngredient", "==", "potato")
                 .get()
                 .then(function (querySnapshot) {
@@ -74,7 +75,7 @@ function infiniteScroll() {
 
                         t2 += "<span class=recipeText>Main Ingredient: " + doc.data().mainIngredient + "</span>";
 
-                        t2 += "</div>";
+                        t2 += "</div>"; 
 
                         div.append(t2);
 
@@ -86,6 +87,7 @@ function infiniteScroll() {
                 });
         } else {
             console.log("false");
+            //get all recipes
             db.collection("recipes").get().then(function (querySnapshot) {
                 querySnapshot.forEach(function (doc) {
                     t2 += "<div class='recipeContainer'>";
