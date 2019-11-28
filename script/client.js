@@ -1,23 +1,3 @@
-  
-      // Get a reference to the database service
-      var database = firebase.database();
-  
-  const firebaseConfig = {
-    apiKey: "AIzaSyCe5qVI7blspULFqLJ1QIhoGnDnrB7vJwc",
-    authDomain: "recipeproject-ba288.firebaseapp.com",
-    databaseURL: "https://recipeproject-ba288.firebaseio.com",
-    projectId: "recipeproject-ba288",
-    storageBucket: "recipeproject-ba288.appspot.com",
-    messagingSenderId: "199394858198",
-    appId: "1:199394858198:web:d5fa1bd2f982ac14d92577",
-    measurementId: "G-RFT5692BZ9"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-  var db = firebase.firestore();
-//------------------------------------
-
-
 $(document).ready(infiniteScroll());
 
 var i = 100;
@@ -74,12 +54,27 @@ function infiniteScroll() {
     var nextItem = 1;
     var actItem = 1;
     var loadMore = function () {
-
-        db.collection("cities").get().then(function(querySnapshot) {
+        db.collection("recipes").get().then(function(querySnapshot) {
+            let t2 = "";
             querySnapshot.forEach(function(doc) {
                 // doc.data() is never undefined for query doc snapshots
                 console.log(doc.id, " => ", doc.data());
+                t2 += "<div class='recipeContainer'>";
+            //i used an id here for example, its not needed and should use a class
+            t2 += "<img class='runnerimg' src='" + doc.data().image + "'>";
+            //$("#runnerimg" + index).css(runnerImageStyle);
+
+            t2 += "<span class=runnerName>" + doc.data().title + "</span>";
+
+            t2 += "<span class=recipeText>Main Ingredient: " + doc.data().mainIngredient + "</span>";
+
+            t2 += "</div>";
             });
+            t2 += "</div>";
+        
+        
+        var div = $(".bodyContent");
+        div.append(t2);
         });
 
 /*

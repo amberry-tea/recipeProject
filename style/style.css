@@ -76,17 +76,7 @@ header {
   color: #000000;
 }
 
-#menuBar {
-  height: calc(60px * 2.37);
-  clear: both;
-  padding-top: 20px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 
-
-  background: #87D37C;
-}
 
 /* Home button */
 #homeButton {
@@ -148,6 +138,7 @@ td {
 .recipeText {
   font-size: 30px;
   display: block;
+  text-align: center;
 }
 
 .recipeContainer {
@@ -219,17 +210,6 @@ td {
     color: #000000;
   }
 
-  #menuBar {
-    height: calc(60px);
-    clear: both;
-    padding-top: 8px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-
-
-    background: #87D37C;
-  }
 
   /* Home button */
   #homeButton {
@@ -451,18 +431,7 @@ header {
 }
 
 
-/* Menu bar */
-#menuBar {
-  position: absolute;
-  width: calc(414px * 2.37);
-  height: calc(60px * 2.37);
-  left: 0px;
-  top: calc(676px * 2.37);
-  padding-top: 20px;
 
-
-  background: #87D37C;
-}
 
 
 /* fruits and veggies background */
@@ -776,3 +745,14 @@ height: 10vh;
   margin-top: calc(10vh - 40px);
 }
 
+#menuBar {
+  height: calc(60px * 2.37);
+  clear: both;
+  padding-top: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+
+  background: #87D37C;
+}

@@ -9,11 +9,64 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" href="style/style.css"/>
-
   
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+  <!--Include firebase related things -->
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  <!------------------------------------------------------------------------------>
+  <!-- Optional styles and scripts of your own                                  -->
+  <!------------------------------------------------------------------------------>
+  <link rel="stylesheet" href="style/style.css">
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCe5qVI7blspULFqLJ1QIhoGnDnrB7vJwc",
+      authDomain: "recipeproject-ba288.firebaseapp.com",
+      databaseURL: "https://recipeproject-ba288.firebaseio.com",
+      projectId: "recipeproject-ba288",
+      storageBucket: "recipeproject-ba288.appspot.com",
+      messagingSenderId: "199394858198",
+      appId: "1:199394858198:web:d5fa1bd2f982ac14d92577",
+      measurementId: "G-RFT5692BZ9"
+    };
 
 
-  
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+  </script>
+
+  <style>
+    
+  </style>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyA9xoQBnrfkzLoaRksE6qVLNuEqcav-Ji0",
+      authDomain: "test-bd65b.firebaseapp.com",
+      databaseURL: "https://test-bd65b.firebaseio.com",
+      projectId: "test-bd65b",
+      storageBucket: "test-bd65b.appspot.com",
+      messagingSenderId: "3734598502",
+      appId: "1:3734598502:web:7073bb1f259a6e65420ea7",
+      measurementId: "G-YH52R5ZEP4"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
 </head>
 
 <body>
