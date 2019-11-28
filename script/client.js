@@ -54,94 +54,64 @@ function infiniteScroll() {
     var nextItem = 1;
     var actItem = 1;
     var loadMore = function () {
-        db.collection("recipes").get().then(function(querySnapshot) {
-            let t2 = "";
-            querySnapshot.forEach(function(doc) {
-                // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
-                t2 += "<div class='recipeContainer'>";
-            //i used an id here for example, its not needed and should use a class
-            t2 += "<img class='runnerimg' src='" + doc.data().image + "'>";
-            //$("#runnerimg" + index).css(runnerImageStyle);
-
-            t2 += "<span class=runnerName>" + doc.data().title + "</span>";
-
-            t2 += "<span class=recipeText>Main Ingredient: " + doc.data().mainIngredient + "</span>";
-
-            t2 += "</div>";
-            });
-            t2 += "</div>";
-        
-        
+        console.log("loadMore");
         var div = $(".bodyContent");
-        div.append(t2);
-        });
+        var t2 = "";
+        div.append("<div>");
 
-/*
-        db.collection("recipes/").onSnapshot(function (d) {
+        if (window.location.href.indexOf("?") > 0) {
+            console.log("true");
+            db.collection("recipes").where("mainIngredient", "==", "potato")
+                .get()
+                .then(function (querySnapshot) {
+                    querySnapshot.forEach(function (doc) {
+                        console.log(doc.data());
+                        t2 += "<div class='recipeContainer'>";
 
+                        t2 += "<img class='runnerimg' src='" + doc.data().image + "'>";
 
+                        t2 += "<span class=runnerName>" + doc.data().title + "</span>";
 
-            if (d.get("isA") != null)
-              x = d.data()["isA"];  //sets data in dropdown menu to identity tag
-            else
-              x = "________";       // if user has not added tag yet
-            document.getElementById("identityTag").innerHTML = x; //puts data in html
-          });
-        } */
+                        t2 += "<span class=recipeText>Main Ingredient: " + doc.data().mainIngredient + "</span>";
 
-        /*
-        let t2 = "";
-        for (let i = 0; i < data.length; i++) {
+                        t2 += "</div>";
 
-            t2 += "<div class='recipeContainer'>";
-            //i used an id here for example, its not needed and should use a class
-            t2 += "<img class='runnerimg' src='" + data[i]['image'] + "'>";
-            //$("#runnerimg" + index).css(runnerImageStyle);
+                        div.append(t2);
 
-            t2 += "<span class=runnerName>" + data[i]['title'] + "</span>";
+                        t2 = "";
+                    });
+                })
+                .catch(function (error) {
+                    console.log("Error getting documents: ", error);
+                });
+        } else {
+            console.log("false");
+            db.collection("recipes").get().then(function (querySnapshot) {
+                querySnapshot.forEach(function (doc) {
+                    t2 += "<div class='recipeContainer'>";
 
-            t2 += "<span class=recipeText>" + data[i]['recipeIngredient'] + "</span>";
+                    t2 += "<img class='runnerimg' src='" + doc.data().image + "'>";
 
-            t2 += "<span class=recipeText>" + data[i]['cal'] + "</span>";
+                    t2 += "<span class=runnerName>" + doc.data().title + "</span>";
 
-            t2 += "<span class=recipeText>" + data[i]['time'] + "</span>";
+                    t2 += "<span class=recipeText>Main Ingredient: " + doc.data().mainIngredient + "</span>";
 
-            t2 += "<span class=recipeText>" + data[i]['price'] + "</span>";
+                    t2 += "</div>";
 
-            t2 += "</div>";
+                    div.append(t2);
 
+                    t2 = ""
+                });
 
-        }*/
-        /*
-        t2 += "<tr><td>" + data[i]['title'] + "</td><td>"
-          + data[i]['mainIngredient'] + "</td><td>" + data[i]['recipeIngredient'] + "</td><td>"
-          + data[i]['image'] + "</td></tr>";*/
-
-        //t2 += "</div>";
+            })
         
-        
-        //var div = $(".bodyContent");
-        //div.append(t2);
 
-        //                var div = $("#content");
-        //                let htmlStr = "<ul>";
-        //                for(let i = 0; i < data.length; i++) {
-        //                    htmlStr += "<li>" + data[i] + "</li>";
-        //                }
-        //                htmlStr += "</ul>";
-        //                div.html(htmlStr);
-
-
-        /*
-          var item = document.createElement('li');
-          item.innerText = 'Item ' + nextItem++ + ' ' + actItem++;
-          listElm.appendChild(item);
-          if (nextItem > 7) {
-            nextItem = 1;
-          } */
-
+        }
+        div.append("</div>");
     }
+
+
+
 
     var body = document.body,
         html = document.documentElement;
@@ -172,81 +142,3 @@ function infiniteScroll() {
     // Initially load some items.
     loadMore();
 }
-/*
-$(document).ready(function () {
-
-    $('#content').click(function (e) {
-
-        //eval("console.log('lolomg')");
-        // don't allow the anchor to visit the link
-        e.preventDefault();
-
-        $.ajax({
-            url: "/ajax-GET-list",
-            dataType: "json",
-            type: "GET",
-            data: {
-                format: "getJSONCourses"
-            },
-            success: function (data) {
-                //console.log("SUCCESS COURSES IN JSON:", data);
-                let t2 = "";
-                for (let i = 0; i < data.length; i++) {
-                    //console.log(data[i]['name']);
-                    //console.log(data[i].credits);
-                    t2 += "<tr><td>" + data[i]['title'] + "</td><td>" +
-                        data[i]['mainIngredient'] + "</td><td>" + data[i]['recipeIngredient'] + "</td><td>" +
-                        data[i]['image'] + "</td></tr>";
-                }
-                t2 += "";
-                var div = $("table");
-                div.append(t2);
-                //                var div = $("#content");
-                //                let htmlStr = "<ul>";
-                //                for(let i = 0; i < data.length; i++) {
-                //                    htmlStr += "<li>" + data[i] + "</li>";
-                //                }
-                //                htmlStr += "</ul>";
-                //                div.html(htmlStr);
-
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                $("#p1").text(jqXHR.statusText);
-                console.log("ERROR:", jqXHR, textStatus, errorThrown);
-            }
-        });
-    });
-
-
-
-    // PERFORM A HTTP POST, AND GET A RESPONSE FROM THE SERVER
-    $('#submit').click(function (e) {
-        let formData = {
-            firstName: $("#firstName").val(),
-            lastName: $("#lastName").val(),
-            email: $("#email").val()
-        };
-        console.log("Form data to send:", formData);
-        $.ajax({
-            url: "/post-form",
-            dataType: "json",
-            type: "POST",
-            data: formData,
-            success: function (data) {
-                console.log("SUCCESS JSON:", data);
-                // how do we know what we are getting?
-                $("#p2").html(data[0] + " " + data[1]['firstName'] +
-                    " " + data[1]['lastName'] +
-                    " " + data[1]['email']
-                );
-
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                $("#p2").text(jqXHR.statusText);
-                console.log("ERROR:", jqXHR, textStatus, errorThrown);
-            }
-        });
-    });
-
-});
-*/
