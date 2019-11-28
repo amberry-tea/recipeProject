@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang=en>
 
 <head>
-  <title>Feelin Vegan</title>
-  <meta charset="utf-8" />
+<title>Feelin Vegan?</title>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="style/style.css"/>
+  
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
@@ -20,7 +27,7 @@
   <!------------------------------------------------------------------------------>
   <!-- Optional styles and scripts of your own                                  -->
   <!------------------------------------------------------------------------------>
-  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <link rel="stylesheet" href="style/style.css">
 
   <script>
     const firebaseConfig = {
@@ -34,12 +41,14 @@
       measurementId: "G-RFT5692BZ9"
     };
 
+
     firebase.initializeApp(firebaseConfig);
     var db = firebase.firestore();
   </script>
 
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  
+  <style>
+    
+  </style>
 
   <script>
     // Your web app's Firebase configuration
@@ -57,43 +66,46 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
   </script>
+
 </head>
 
 <body>
 
-  <div id=vegetableContent>
+  <div id=content>
 
     <header>
       <div id=logoCircle></div>
-      <h1 id="chooseASnack">FIND YOUR SNACK</h1>
+      <h1 id="chooseASnack">Feelin' Vegan</h1>
     </header>
 
     <div id="subheader">
       <h1 id="headerCategory">
-        <span id="previousLocation">Category /</span>
-        <span id="currentLocation">Ingredient</span></h1>
+        <span id="previousLocation">Category > Ingredient > Question</span>
+        <span id="currentLocation">Recipes</span></h1>
     </div>
 
-    <div class=potato id="potato">
-      <div id=potatoButton></div><span id=potatoText>Potato</span>
+    <div class=bodyContent>
+      <table id="infinite-list"></table>
     </div>
-    <div class=potato id="carrot">
-      <div id=potatoButton></div><span id=potatoText>Carrot</span>
-    </div>
-    <div class=potato id="apple">
-      <div id=potatoButton></div><span id=potatoText>Apple</span>
-    </div>
-
-    <div id=menuBar>
-      <div id=profileButton></div>
-      <div id=homeButton></div>
-      <div id=searchButton></div>
-    </div>
-    <div id=checkmarkButton><span id=skipText>Skip</span></div>
-
   </div>
 
-  <script src="script/redir.js"></script>
+  <footer id=menuBar>
+    <div id=profileButton></div>
+    <div id=homeButton></div>
+    <div id=searchButton></div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="script/client.js"></script>
+  <script>
+    /*<![CDATA[*/
+    $(document).ready();
+    //$(document).ready(createDoc());
+    /*]]>*/
+
+  </script>
+   <script src="script/redir.js"></script>
 </body>
 
 </html>
