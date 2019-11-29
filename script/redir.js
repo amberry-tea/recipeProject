@@ -3,63 +3,63 @@ var queryString = "";
 $("#potato").on("click", function () {
     queryString = window.location.href.split("?");
     queryString = queryString[1];
-    queryString = "recipes.html?" + queryString + "&ingredient=potato";
+    queryString = "question1.html?" + queryString + "&ingredient=potato";
     window.location.href = queryString;
 });
 
 $("#carrot").on("click", function () {
     queryString = window.location.href.split("?");
     queryString = queryString[1];
-    queryString = "recipes.html?" + queryString + "&ingredient=carrot";
+    queryString = "question1.html?" + queryString + "&ingredient=carrot";
     window.location.href = queryString;
 });
 
 $("#apple").on("click", function () {
     queryString = window.location.href.split("?");
     queryString = queryString[1];
-    queryString = "recipes.html?" + queryString + "&ingredient=apple";
+    queryString = "question1.html?" + queryString + "&ingredient=apple";
     window.location.href = queryString;
 });
 
 $("#bread").on("click", function () {
     queryString = window.location.href.split("?");
     queryString = queryString[1];
-    queryString = "recipes.html?" + queryString + "&ingredient=bread";
+    queryString = "question1.html?" + queryString + "&ingredient=bread";
     window.location.href = queryString;
 });
 
 $("#pasta").on("click", function () {
     queryString = window.location.href.split("?");
     queryString = queryString[1];
-    queryString = "recipes.html?" + queryString + "&ingredient=pasta";
+    queryString = "question1.html?" + queryString + "&ingredient=pasta";
     window.location.href = queryString;
 });
 
 $("#oats").on("click", function () {
     queryString = window.location.href.split("?");
     queryString = queryString[1];
-    queryString = "recipes.html?" + queryString + "&ingredient=oats";
+    queryString = "question1.html?" + queryString + "&ingredient=oats";
     window.location.href = queryString;
 });
 
 $("#tofu").on("click", function () {
     queryString = window.location.href.split("?");
     queryString = queryString[1];
-    queryString = "recipes.html?" + queryString + "&ingredient=tofu";
+    queryString = "question1.html?" + queryString + "&ingredient=tofu";
     window.location.href = queryString;
 });
 
 $("#nuts").on("click", function () {
     queryString = window.location.href.split("?");
     queryString = queryString[1];
-    queryString = "recipes.html?" + queryString + "&ingredient=bread";
+    queryString = "question1.html?" + queryString + "&ingredient=bread";
     window.location.href = queryString;
 });
 
 $("#tempeh").on("click", function () {
     queryString = window.location.href.split("?");
     queryString = queryString[1];
-    queryString = "recipes.html?" + queryString + "&ingredient=tempeh";
+    queryString = "question1.html?" + queryString + "&ingredient=tempeh";
     window.location.href = queryString;
 });
 
@@ -94,4 +94,18 @@ $("#searchButton").on("click", function () {
 
 $("#homeButton").on("click", function () {
     window.location.href = 'index.html';
+});
+
+$("#fresh").on("click", function(){
+    queryString = window.location.href.split("?");
+    queryString = queryString[1];
+    queryString = "recipes.html?" + queryString + "&cooked=false";
+    window.location.href = queryString;
+});
+
+$("#cooked").on("click", function(){
+    queryString = window.location.href.split("?");
+    queryString = queryString[1];
+    queryString = "recipes.html?" + queryString + "&cooked=true";
+    window.location.href = queryString;
 });
