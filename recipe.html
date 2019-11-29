@@ -6,6 +6,7 @@
   <meta charset="utf-8" />
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
   <!--Include firebase related things -->
   <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -20,7 +21,11 @@
   <!------------------------------------------------------------------------------>
   <!-- Optional styles and scripts of your own                                  -->
   <!------------------------------------------------------------------------------>
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="scripts/script.js"></script>
+
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
 
   <script>
     const firebaseConfig = {
@@ -34,12 +39,12 @@
       measurementId: "G-RFT5692BZ9"
     };
 
+
     firebase.initializeApp(firebaseConfig);
     var db = firebase.firestore();
   </script>
 
   <link rel="stylesheet" type="text/css" href="style/style.css" />
-  
 
   <script>
     // Your web app's Firebase configuration
@@ -61,7 +66,7 @@
 
 <body>
 
-  <div id=vegetableContent>
+  <div id=recipeContent>
 
     <header>
       <div id=logoCircle></div>
@@ -70,30 +75,28 @@
 
     <div id="subheader">
       <h1 id="headerCategory">
-        <span id="previousLocation">Category /</span>
-        <span id="currentLocation">Ingredient</span></h1>
+        <span id="previousLocation">Category > Ingredient > Question > Recipe List</span>
+        <span id="currentLocation"></span></h1>
     </div>
 
-    <div class=potato id="tofu">
-      <div id=potatoButton></div><span id=potatoText>Tofu</span>
-    </div>
-    <div class=potato id="nuts">
-      <div id=potatoButton></div><span id=potatoText>Nuts</span>
-    </div>
-    <div class=potato id="tempeh">
-      <div id=potatoButton></div><span id=potatoText>Tempeh</span>
-    </div>
+    <div id=recipeStuff></div>
 
     <div id=menuBar>
       <div id=profileButton></div>
       <div id=homeButton></div>
       <div id=searchButton></div>
     </div>
-    <div id=checkmarkButton><span id=skipText>Skip</span></div>
 
   </div>
 
+  <script src="script/client.js"></script>
   <script src="script/redir.js"></script>
+  <script>
+    /*<![CDATA[*/
+    $(document).ready(createRecipe());
+    //$(document).ready(createDoc());
+    /*]]>*/
+  </script>
 </body>
 
 </html>

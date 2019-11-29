@@ -63,19 +63,25 @@ $("#tempeh").on("click", function () {
     window.location.href = queryString;
 });
 
+$(document).on("click", '.recipeContainer', function(event){
+    console.log(event.target);
+    //Gets the parent container class, then gets its title span, then parses the HTML to set the query string
+    window.location.href = "recipe.html?title=" + event.target.closest(".recipeContainer").getElementsByClassName("runnerName")[0].innerHTML;
+});
+
 $("#fruitsVeggiesBackground").on("click", function () {
-    queryString += "category=vegetables";
+    queryString += "category=FruitsVeggies";
     window.location.href = 'vegetables.html?' + queryString;
 });
 
 $("#grainsButton").on("click", function () {
-    queryString += "category=grains";
+    queryString += "category=Grains";
     window.location.href = 'grains.html?' + queryString;
 });
 
 $("#protienButton").on("click", function () {
-    queryString += "category=protien";
-    window.location.href = 'protien.html?' + queryString;
+    queryString += "category=ProteinNuts";
+    window.location.href = 'protein.html?' + queryString;
 });
 
 $("#profileButton").on("click", function () {
@@ -87,5 +93,5 @@ $("#searchButton").on("click", function () {
 });
 
 $("#homeButton").on("click", function () {
-    window.location.href = 'home.html';
+    window.location.href = 'index.html';
 });

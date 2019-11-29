@@ -34,19 +34,6 @@ body {
   margin: auto;
 }
 
-header {
-  width: 100vw;
-  height: 14vh;
-  max-width: 100vw;
-  max-height: 14vh;
-  border: 9px solid #ffbc6c;
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
-
-  background: #FFFFFF;
-}
-
 /* logo circle */
 #logoCircle {
   position: relative;
@@ -81,7 +68,7 @@ header {
 #logo {
   float: left;
   width: 22%;
-  padding-top: 15pt;
+  margin-top: -3.4vh;
 }
 
 
@@ -205,21 +192,6 @@ td {
     border-radius: 100%;
 
     background: #87D37C;
-  }
-
-  /* Header: "CHOOSE A SNACK" */
-  #chooseASnack {
-    display: inline-block;
-    margin-left: 30%;
-    margin-top: 0;
-
-    font-family: "Montserrat";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 30pt;
-    line-height: 88px;
-
-    color: #000000;
   }
 
 
@@ -353,9 +325,9 @@ script {
 
 header {
   width: 100vw;
-  height: 14vh;
+  height: 10vh;
   max-width: 100vw;
-  max-height: 14vh;
+  max-height: 10vh;
   border: 9px solid #ffbc6c;
   border-top: 0px;
   border-left: 0px;
@@ -402,7 +374,7 @@ header {
 #chooseASnack {
   display: inline-block;
   margin-left: 10%;
-  margin-top: calc(10% - 43px);
+  margin-top: calc(3% - 43px);
 
   font-family: "Montserrat";
   font-style: normal;
@@ -767,4 +739,58 @@ height: 10vh;
 
 
   background: #87D37C;
+}
+
+#contentRecipes {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  border: 0px;
+
+  background: #E0E0E0;
+}
+
+#contentRecipe {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  border: 0px;
+
+  background: #FFFFFF;
+}
+
+.recipePageContainer {
+  margin: 40px;
+  padding: 40px;
+  font-family: "Open Sans";
+  border: 2px solid #AAAAAA;
+  background-color: #D0F0C0;
+}
+
+.recipePageImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.recipePageTitle {
+  font-weight: bold;
+  font-size: 45pt;
+  display: block;
+  text-align: center;
+}
+
+.recipePageText {
+  font-size: 20pt;
+  display: block;
+  text-align: center;
+}
+
+.recipePageHeader {
+  font-size: 27pt;
+}
+
+.hide {
+  display: none;
 }
