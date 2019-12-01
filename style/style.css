@@ -713,6 +713,7 @@ header {
   filter: brightness(.85);
 }
 
+/* Styling the image button for the pasta button. */
 #pastaButton {
   width: 15vh;
   height: 15vh;
@@ -728,6 +729,7 @@ header {
   filter: brightness(.85);
 }
 
+/* Styling the image button for the oats button. */
 #oatsButton {
   width: 15vh;
   height: 15vh;
@@ -744,6 +746,54 @@ header {
 }
 
 
+/*  Protein and Nuts category.  */
+/* Styling the image button for the tofu button. */
+#tofuButton {
+  width: 15vh;
+  height: 15vh;
+  border-radius: 100%;
+  margin-top: 2.8vh;
+  float: left;
+  margin-left: 50px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url(../images/tofu.jpg);
+  background-size: 120%;
+  filter: brightness(.85);
+}
+
+/* Styling the image button for the nuts button. */
+#nutsButton {
+  width: 15vh;
+  height: 15vh;
+  border-radius: 100%;
+  margin-top: 2.8vh;
+  float: left;
+  margin-left: 50px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url(../images/nuts.jpg);
+  background-size: 140%;
+  filter: brightness(.85);
+}
+
+/* Styling the image button for the tempeh button. */
+#tempehButton {
+  width: 15vh;
+  height: 15vh;
+  border-radius: 100%;
+  margin-top: 2.8vh;
+  float: left;
+  margin-left: 50px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url(../images/tempeh.jpg);
+  background-size: 110%;
+  filter: brightness(.85);
+}
 
 /* Styling the labelled text for the choice of main ingredients in the fruits 
    and veggies category. */
