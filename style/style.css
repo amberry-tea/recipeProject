@@ -15,12 +15,14 @@ body {
   background-color: rgb(152, 226, 141);
   padding: 1px;
   margin-top: calc(50vh - 14vh - 22vh);
+  border-radius: 1em;
 }
 
 .dreamText {
   font-family: 'Open Sans', sans-serif;
   font-size: 35pt;
   margin: 25px 100px;
+  color: rgb(46, 46, 46);
 }
 
 #dreamTitle {
@@ -60,7 +62,7 @@ body {
 
   font-family: "Montserrat";
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 50pt;
   line-height: 88px;
 
@@ -94,8 +96,8 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
 
-  filter: brightness(.9);
-  border: 7px solid #80D070;
+  /* filter: brightness(.9);
+  border: 7px solid #80D070; */
 }
 
 /* Profile button */
@@ -212,7 +214,7 @@ td {
     background-size: contain;
 
     filter: brightness(.9);
-    border: 7px solid #80D070;
+    /* border: 7px solid #80D070; */
   }
 
   /* Profile button */
@@ -289,7 +291,7 @@ td {
     text-align: center;
     font-size: 30pt;
     font-family: 'Montserrat', sans-serif;
-    background-color: rgb(152, 226, 141);
+    background-color: rgba(152, 226, 141, 0.432);
     padding: 1px;
     margin-top: calc(50vh - 14vh - 22vh);
     width: 100%;
@@ -399,6 +401,7 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 2em;
   filter: brightness(.85);
 }
 
@@ -414,6 +417,7 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 2em;
   filter: brightness(.85);
 }
 
@@ -431,6 +435,7 @@ header {
   background-repeat: no-repeat;
   background: url(../images/veggiesButtonBackground.jpg);
   filter: brightness(.85);
+  border-radius: 2em;
 }
 
 
@@ -579,17 +584,22 @@ header {
 }
 
 .savedStuff {
-  width: 100vw;
+  width: 90vw;
   height: 20vh;
   overflow: auto;
-  font-size: 40pt;
+  font-size: 41pt;
   text-align: center;
+  margin: auto;
 
-
-  background-color: #efefef;
+  border-style: solid;
+  border-width: 4pt;
+  border-color: #ffe6a1;
+  
+  background-color: rgba(152, 226, 141, 0.5);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 1em;
   filter: brightness(0.7);
 }
 
@@ -686,6 +696,54 @@ header {
   filter: brightness(.85);
 }
 
+/*  Grains page.  */
+/* Styling the image button for the bread button. */
+#breadButton {
+  width: 15vh;
+  height: 15vh;
+  border-radius: 100%;
+  margin-top: 2.8vh;
+  float: left;
+  margin-left: 50px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url(../images/bread.jpg);
+  background-size: 165%;
+  filter: brightness(.85);
+}
+
+#pastaButton {
+  width: 15vh;
+  height: 15vh;
+  border-radius: 100%;
+  margin-top: 2.8vh;
+  float: left;
+  margin-left: 50px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url(../images/pasta.jpg);
+  background-size: 165%;
+  filter: brightness(.85);
+}
+
+#oatsButton {
+  width: 15vh;
+  height: 15vh;
+  border-radius: 100%;
+  margin-top: 2.8vh;
+  float: left;
+  margin-left: 50px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url(../images/oats.jpg);
+  background-size: 150%;
+  filter: brightness(.85);
+}
+
+
 
 /* Styling the labelled text for the choice of main ingredients in the fruits 
    and veggies category. */
@@ -749,14 +807,15 @@ padding-left: 0vh;
 
 .questionStuff {
 
-  width: 100vw;
+  margin: auto;
+  width: 90vw;
   height: 20vh;
   overflow: auto;
   font-size: 40pt;
   text-align: center;
 
 
-  background-color: #BBBBBB;
+  background-color: rgba(152, 226, 141, 0.5);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
