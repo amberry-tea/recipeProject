@@ -36,7 +36,7 @@ body {
 
 /* logo circle */
 #logoCircle {
-  position: relative;
+  /* position: relative;
   display: inline-block;
   width: 151px;
   height: 151px;
@@ -45,7 +45,10 @@ body {
 
   border-radius: 100%;
 
-  background: #87D37C;
+  background: #87D37C; */
+  float: left;
+  width: 20%;
+  margin-top: -3.4vh;
 }
 
 /* Header: "CHOOSE A SNACK" */
@@ -64,7 +67,7 @@ body {
   color: #000000;
 }
 
-/* Logo inside the header */
+/* Styling the logo div inside the header. */
 #logo {
   float: left;
   width: 22%;
@@ -635,6 +638,7 @@ header {
 
 }
 
+/* Styling the image button for potato category. */
 #potatoButton {
   width: 15vh;
   height: 15vh;
@@ -645,17 +649,51 @@ header {
 
   background-position: center;
   background-repeat: no-repeat;
-  background: url(../images/veggiesButtonBackground.jpg);
+  background: url(../images/potatoes.jpg);
+  background-size: 150%;
+  filter: brightness(.85);
+}
+
+/* Styling the image button for carrot button. */
+#carrotButton {
+  width: 15vh;
+  height: 15vh;
+  border-radius: 100%;
+  margin-top: 2.8vh;
+  float: left;
+  margin-left: 50px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url(../images/carrots.jpg);
+  background-size: 165%;
+  filter: brightness(.85);
+}
+
+/* Styling the image button for apple button. */
+#appleButton {
+  width: 15vh;
+  height: 15vh;
+  border-radius: 100%;
+  margin-top: 2.8vh;
+  float: left;
+  margin-left: 50px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url(../images/apples.jpeg);
+  background-size: 165%;
   filter: brightness(.85);
 }
 
 
-/* fruits and veggies */
+/* Styling the labelled text for the choice of main ingredients in the fruits 
+   and veggies category. */
 #potatoText {
   margin-top: calc(20vh/2 - 35px);
   display: block;
   text-align: left;
-  margin-left: 380px;
+  margin-left: 385px;
   color: #000000;
   margin-bottom: 100px;
 
@@ -696,6 +734,7 @@ height: 10vh;
   background: #999999;
   overflow: auto;
   border-bottom: 7px solid #FFE99c;
+padding-left: 0vh;
 }
 
 #currentLocation {
@@ -705,6 +744,7 @@ height: 10vh;
 
 #previousLocation {
   font-size: 20pt;
+  padding-left: 3vh;
 }
 
 .questionStuff {
@@ -722,6 +762,7 @@ height: 10vh;
   background-size: cover;
   filter: brightness(0.7);
   margin-top: 100px;
+  border-radius: 1em;
 }
 
 .questionStuffText {
