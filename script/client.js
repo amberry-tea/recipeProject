@@ -4,7 +4,6 @@
     var b = 100;
 
     var hideInfoBool = false;
-    var bodyContent = document.getElementsByClassName('bodyContent');
     var info = document.getElementById('info');
 
     //Function to show the home page informative menu after it has been hidden.
@@ -50,24 +49,19 @@
 
     function loadRecipes() {
 
-        console.log("loadRecipes");
         //if there are query params
-        console.log("has params");
 
         let urlParams = new URLSearchParams(window.location.search);
         let category = urlParams.get('category');
         let ingredient = urlParams.get('ingredient');
         let cooked = (urlParams.get('cooked') == 'true');
 
-        console.log(urlParams.get('cooked'));
-        console.log("c: " + category + " i: " + ingredient + " cooked: " + cooked);
 
         //get where the ingredient is equal to the param
         let hasCategory = urlParams.has('category');
         let hasIngredient = urlParams.has('ingredient');
         let hasCooked = urlParams.has('cooked');
 
-        console.log("categ: " + hasCategory + "ingred: " + hasIngredient + "cooke: " + hasCooked);
 
         if (hasCategory && hasIngredient && hasCooked) {
             db.collection("recipes")
@@ -145,7 +139,6 @@
                     console.log("Error getting documents: ", error);
                 });
         } else {
-            console.log("else");
             db.collection("recipes")
                 .get()
                 .then(function (querySnapshot) {
@@ -192,20 +185,16 @@
         var nextItem = 1;
         var actItem = 1;
         var loadMore = function () {
-            console.log("loadMore");
             var div = $(".bodyContent");
             var t2 = "";
             div.append("<div>");
             //if there are query params
             if (window.location.href.indexOf("?") > 0) {
-                console.log("has params");
 
                 let urlParams = new URLSearchParams(window.location.search);
                 let category = urlParams.get('category');
                 let ingredient = urlParams.get('ingredient');
                 let cooked = (urlParams.get('cooked') == 'true');
-                console.log(urlParams.get('cooked'));
-                console.log("c: " + category + " i: " + ingredient + " cooked: " + cooked);
 
                 //get where the ingredient is equal to the param
                 db.collection("recipes").where("mainIngredient", "==", ingredient).where("category", "==", category).where("cooked", "==", cooked)
@@ -232,7 +221,6 @@
                         console.log("Error getting documents: ", error);
                     });
             } else {
-                console.log("false");
                 //get all recipes
                 db.collection("recipes").get().then(function (querySnapshot) {
                     querySnapshot.forEach(function (doc) {
@@ -312,7 +300,6 @@
                     db.collection("recipes").doc(index)
                         .get()
                         .then(function (doc) {
-                            console.log(doc.data());
                             let t2 = "";
 
                             t2 += "<div class='recipePageContainer'>";

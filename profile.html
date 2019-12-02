@@ -35,7 +35,7 @@
   <!------------------------------------------------------------------------------>
   <!-- Optional styles and scripts of your own                                  -->
   <!------------------------------------------------------------------------------>
-  <link rel="stylesheet" type="text/css" href="style/style.css"/>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
 
 
   <script>
@@ -60,11 +60,12 @@
 </head>
 
 <body>
-  
+
   <div id=firebasecontainer>
-  <div id="firebaseui-auth-container"></div>
-  <div id="loader">Loading...</div>
-    </div>
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
+  </div>
+
   <div id=profileContent>
 
     <header>
@@ -102,80 +103,75 @@
   </div>
 
   <script>
-      // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(firebase.auth());
-  
-      var uiConfig = {
-        callbacks: {
-          signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-            // User successfully signed in.
-            // Return type determines whether we continue the redirect automatically
-            // or whether we leave that to developer to handle.
-            return true;
-          },
-          uiShown: function () {
-            // The widget is rendered.
-            // Hide the loader.
-            document.getElementById('loader').style.display = 'none';
-          }
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+    var uiConfig = {
+      callbacks: {
+        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+          // User successfully signed in.
+          // Return type determines whether we continue the redirect automatically
+          // or whether we leave that to developer to handle.
+          return true;
         },
-        // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-        signInFlow: 'popup',
-        signInSuccessUrl: '<url-to-redirect-to-on-success>',
-        signInOptions: [
-          // Leave the lines as is for the providers you want to offer your users.
-          //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-          //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-          //firebase.auth.GithubAuthProvider.PROVIDER_ID,
-          firebase.auth.EmailAuthProvider.PROVIDER_ID,
-          //firebase.auth.PhoneAuthProvider.PROVIDER_ID
-        ],
-        // Terms of service url.
-        tosUrl: '<your-tos-url>',
-        // Privacy policy url.
-        privacyPolicyUrl: '<main.html>'
-      };
-  
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
-  
-  
-  
-      //createUser();
-  
-      function createUser() {
-  
-        let history = [],
-  
-        // if the current user logged in user
-        // is authenticated, then grab "uid" "displayName" and "email"
-        // use "set()" with merge (if document did not exist it will be created)
-        firebase.auth().onAuthStateChanged(function (user) {
-          db.collection("users").doc(user.uid).set({
-            "name": user.displayName,
-            "email": user.email,
-            "history": 
-            
-          }, {
-            merge: true
-          });
+        uiShown: function () {
+          // The widget is rendered.
+          // Hide the loader.
+          document.getElementById('loader').style.display = 'none';
+        }
+      },
+      // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+      signInFlow: 'popup',
+      signInSuccessUrl: "/index.html",
+      signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        //firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        //firebase.auth.PhoneAuthProvider.PROVIDER_ID
+      ],
+      // Terms of service url.
+      tosUrl: '<your-tos-url>',
+      // Privacy policy url.
+      privacyPolicyUrl: '<main.html>'
+    };
+
+    // The start method will wait until the DOM is loaded.
+    ui.start('#firebaseui-auth-container', uiConfig);
+
+
+    //createUser();
+
+    function createUser() {
+
+      let history = [];
+
+      // if the current user logged in user
+      // is authenticated, then grab "uid" "displayName" and "email"
+      // use "set()" with merge (if document did not exist it will be created)
+      firebase.auth().onAuthStateChanged(function (user) {
+        db.collection("users").doc(user.uid).set({
+          "name": user.displayName,
+          "email": user.email,
+        }, {
+          merge: true
         });
-      }
-  
-  
-    </script>
+      });
+    }
+  </script>
 
   <script>
     function setUserIdentity(n) {
       firebase.auth().onAuthStateChanged(function (user) {
         db.collection("users/").doc(user.uid).onSnapshot(function (d) {
-            if (d.get("isA") != null)
-              x = d.data()["isA"];  //sets data in dropdown menu to identity tag
-            else
-              x = "________";       // if user has not added tag yet
-            document.getElementById("identityTag").innerHTML = x; //puts data in html
-          });
+          if (d.get("isA") != null)
+            x = d.data()["isA"]; //sets data in dropdown menu to identity tag
+          else
+            x = "________"; // if user has not added tag yet
+          document.getElementById("identityTag").innerHTML = x; //puts data in html
+        });
       })
     }
 
@@ -227,7 +223,7 @@
     }
   </script>
 
-<script src="script/redir.js"></script>
+  <script src="script/redir.js"></script>
 
 </body>
 

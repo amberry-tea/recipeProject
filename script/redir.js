@@ -112,12 +112,10 @@ $("#cooked").on("click", function(){
 
 $("#checkmarkButton").on("click", function(){
     let url = window.location.pathname;
-    console.log(url);
     if(url == "/categories.html" ||
     url == "/vegetables.html" || url == "/grains.html" || url == "/protein.html"){
         window.location.pathname = "question1.html";
     } else if (url == "/question1.html") {
-        console.log("sdad");
         window.location.pathname = "/recipes.html"
     }
 })  
