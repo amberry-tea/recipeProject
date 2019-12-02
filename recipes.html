@@ -75,19 +75,20 @@
 
     <header>
       <div id="logo"><img id="logoImg" src="images/logo.png"></div>
-      <h1 id="chooseASnack">Feelin' Vegan</h1>
+      <h1 id="headerTitle">Feelin' Vegan</h1>
     </header>
 
     <div id="subheader">
       <h1 id="headerCategory">
-        <span id="previousLocation">Category > Ingredient > Question</span>
-        <span id="currentLocation">Recipes</span></h1>
+        <span id="previousLocation">Category > Main Ingredient > Questions</span>
+        <span id="currentLocation">Recipe List</span></h1>
     </div>
 
     <div class=bodyContent>
       <table id="infinite-list"></table>
     </div>
   </div>
+
 
   <footer id=menuBar>
     <div id=profileButton></div>
@@ -100,7 +101,7 @@
   <script src="script/client.js"></script>
   <script>
     /*<![CDATA[*/
-    $(document).ready(infiniteScroll());
+    $(document).ready(loadRecipes());
     //$(document).ready(createDoc());
     /*]]>*/
   </script>

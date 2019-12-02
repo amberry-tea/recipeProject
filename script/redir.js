@@ -69,7 +69,7 @@ $(document).on("click", '.recipeContainer', function(event){
     window.location.href = "recipe.html?title=" + event.target.closest(".recipeContainer").getElementsByClassName("runnerName")[0].innerHTML;
 });
 
-$("#fruitsVeggiesBackground").on("click", function () {
+$("#fruitsVeggiesButton").on("click", function () {
     queryString += "category=FruitsVeggies";
     window.location.href = 'vegetables.html?' + queryString;
 });
@@ -109,3 +109,15 @@ $("#cooked").on("click", function(){
     queryString = "recipes.html?" + queryString + "&cooked=true";
     window.location.href = queryString;
 });
+
+$("#checkmarkButton").on("click", function(){
+    let url = window.location.pathname;
+    console.log(url);
+    if(url == "/categories.html" ||
+    url == "/vegetables.html" || url == "/grains.html" || url == "/protein.html"){
+        window.location.pathname = "question1.html";
+    } else if (url == "/question1.html") {
+        console.log("sdad");
+        window.location.pathname = "/recipes.html"
+    }
+})  

@@ -1,13 +1,8 @@
-body {
-  border: 0px;
-  margin: 0px;
-}
-
 .blur {
   filter: blur(2px);
 }
 
-#dream {
+#info {
   position: fixed;
   text-align: center;
   font-size: 55pt;
@@ -18,18 +13,18 @@ body {
   border-radius: 1em;
 }
 
-.dreamText {
+.infoText {
   font-family: 'Open Sans', sans-serif;
   font-size: 35pt;
   margin: 25px 100px;
   color: rgb(46, 46, 46);
 }
 
-#dreamTitle {
+#infoTitle {
   margin-bottom: 25px;
 }
 
-#dreamUnderline {
+#infoUnderline {
   width: 70vw;
   height: 9px;
   background-color: #ffbc6c;
@@ -54,7 +49,7 @@ body {
 }
 
 /* Header: "CHOOSE A SNACK" */
-#chooseASnack {
+#headerTitle {
   display: inline-block;
   margin-left: 10%;
   margin-top: calc(10% - 43px);
@@ -91,13 +86,13 @@ body {
   width: 95px;
   height: 95px;
 
-  background: url(../images/home.png);
+  background: url(./images/home.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 
-  /* filter: brightness(.9);
-  border: 7px solid #80D070; */
+  filter: brightness(.9);
+  border: 7px solid #80D070;
 }
 
 /* Profile button */
@@ -108,11 +103,13 @@ body {
   width: 95px;
   height: 95px;
 
-  background: url(../images/user.png);
+  background: url(./images/user.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+
 
 #searchButton {
   /* Search recipe button */
@@ -124,18 +121,15 @@ body {
   height: 95px;
 
 
-  background: url(../images/search.png);
+  background: url(./images/search.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 
+
 }
 
-td {
-  font-size: 50px;
-}
-
-#lastDreamText {
+#lastInfoText {
   margin-bottom: 75px;
 }
 
@@ -168,7 +162,8 @@ td {
 }
 
 .bodyContent {
-  background-color: #E0E0E0
+  background-color: #E0E0E0;
+  padding-bottom: 150px;
 }
 
 @media screen and (min-width:1000px) {
@@ -249,11 +244,7 @@ td {
 
   }
 
-  td {
-    font-size: 50px;
-  }
-
-  #lastDreamText {
+  #lastInfoText {
     margin-bottom: 75px;
   }
 
@@ -286,7 +277,7 @@ td {
     width: 100%;
   }
 
-  #dream {
+  #info {
     position: fixed;
     text-align: center;
     font-size: 30pt;
@@ -297,13 +288,13 @@ td {
     width: 100%;
   }
 
-  .dreamText {
+  .infoText {
     font-family: 'Open Sans', sans-serif;
     font-size: 20pt;
     margin: 25px 100px;
   }
 
-  #dreamTitle {
+  #infoTitle {
     margin-bottom: 25px;
   }
 }
@@ -337,22 +328,9 @@ header {
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
+  overflow: auto;
 
   background: #FFFFFF;
-}
-
-/* logo circle */
-#logoCircle {
-  position: relative;
-  display: inline-block;
-  /* width: 151px;
-  height: 151px;
-  left: 40px;
-  top: calc(50% - 75px);
-
-  border-radius: 100%;
-
-  background: #87D37C; */
 }
 
 /* Header: "Category" */
@@ -376,7 +354,7 @@ header {
 }
 
 /* Header: "CHOOSE A SNACK" */
-#chooseASnack {
+#headerTitle {
   display: inline-block;
   margin-left: 10%;
   margin-top: calc(3% - 43px);
@@ -426,7 +404,7 @@ header {
 
 
 /* fruits and veggies background */
-#fruitsVeggiesBackground {
+#fruitsVeggiesButton {
   width: 100vw;
   height: 17vh;
 
@@ -880,7 +858,7 @@ padding-left: 0vh;
 }
 
 #menuBar {
-  height: calc(60px * 2.37);
+  height: 120px;
   clear: both;
   padding-top: 20px;
   position: fixed;
@@ -896,6 +874,7 @@ padding-left: 0vh;
   height: 100vh;
   margin: 0px;
   border: 0px;
+  padding-bottom: 500px;
 
   background: #E0E0E0;
 }
@@ -906,7 +885,12 @@ padding-left: 0vh;
   margin: 0px;
   border: 0px;
 
+
   background: #FFFFFF;
+}
+
+#recipeStuff {
+  padding-bottom: 150px;
 }
 
 .recipePageContainer {
@@ -926,13 +910,13 @@ padding-left: 0vh;
 
 .recipePageTitle {
   font-weight: bold;
-  font-size: 45pt;
+  font-size: 50pt;
   display: block;
   text-align: center;
 }
 
 .recipePageText {
-  font-size: 20pt;
+  font-size: 25pt;
   display: block;
   text-align: center;
 }

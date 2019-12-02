@@ -35,8 +35,8 @@
   <!------------------------------------------------------------------------------>
   <!-- Optional styles and scripts of your own                                  -->
   <!------------------------------------------------------------------------------>
-  <link rel="stylesheet" href="styles/style.css">
-  <script src="scripts/script.js"></script>
+  <link rel="stylesheet" type="text/css" href="style/style.css"/>
+
 
   <script>
     const firebaseConfig = {
@@ -55,36 +55,20 @@
     var db = firebase.firestore();
   </script>
 
-<link rel="stylesheet" type="text/css" href="style/style.css"/>
 
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyA9xoQBnrfkzLoaRksE6qVLNuEqcav-Ji0",
-      authDomain: "test-bd65b.firebaseapp.com",
-      databaseURL: "https://test-bd65b.firebaseio.com",
-      projectId: "test-bd65b",
-      storageBucket: "test-bd65b.appspot.com",
-      messagingSenderId: "3734598502",
-      appId: "1:3734598502:web:7073bb1f259a6e65420ea7",
-      measurementId: "G-YH52R5ZEP4"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  </script>
+
 </head>
 
 <body>
-  <!--
+  
   <div id=firebasecontainer>
   <div id="firebaseui-auth-container"></div>
   <div id="loader">Loading...</div>
-    </div> -->
+    </div>
   <div id=profileContent>
 
     <header>
-      <h1 id="chooseASnack">My Profile</h1>
+      <h1 id="headerTitle">My Profile</h1>
       <div id="logo"><img id="logoImg" src="images/logo.png"></div>
     </header>
 
@@ -118,44 +102,69 @@
   </div>
 
   <script>
-    // Initialize the FirebaseUI Widget using Firebase.
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-    var uiConfig = {
-      callbacks: {
-        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-          // User successfully signed in.
-          // Return type determines whether we continue the redirect automatically
-          // or whether we leave that to developer to handle.
-          return true;
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  
+      var uiConfig = {
+        callbacks: {
+          signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+            // User successfully signed in.
+            // Return type determines whether we continue the redirect automatically
+            // or whether we leave that to developer to handle.
+            return true;
+          },
+          uiShown: function () {
+            // The widget is rendered.
+            // Hide the loader.
+            document.getElementById('loader').style.display = 'none';
+          }
         },
-        uiShown: function () {
-          // The widget is rendered.
-          // Hide the loader.
-          document.getElementById('loader').style.display = 'none';
-        }
-      },
-      // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-      signInFlow: 'popup',
-      signInSuccessUrl: '<url-to-redirect-to-on-success>',
-      signInOptions: [
-        // Leave the lines as is for the providers you want to offer your users.
-        //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        //firebase.auth.GithubAuthProvider.PROVIDER_ID,
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        //firebase.auth.PhoneAuthProvider.PROVIDER_ID
-      ],
-      // Terms of service url.
-      tosUrl: '<your-tos-url>',
-      // Privacy policy url.
-      privacyPolicyUrl: '<main.html>'
-    };
-
-    // The start method will wait until the DOM is loaded.
-    ui.start('#firebaseui-auth-container', uiConfig);
-  </script>
+        // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+        signInFlow: 'popup',
+        signInSuccessUrl: '<url-to-redirect-to-on-success>',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+          //firebase.auth.GithubAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID,
+          //firebase.auth.PhoneAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>',
+        // Privacy policy url.
+        privacyPolicyUrl: '<main.html>'
+      };
+  
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+  
+  
+  
+      //createUser();
+  
+      function createUser() {
+  
+        let history = [],
+  
+        // if the current user logged in user
+        // is authenticated, then grab "uid" "displayName" and "email"
+        // use "set()" with merge (if document did not exist it will be created)
+        firebase.auth().onAuthStateChanged(function (user) {
+          db.collection("users").doc(user.uid).set({
+            "name": user.displayName,
+            "email": user.email,
+            "history": 
+            
+          }, {
+            merge: true
+          });
+        });
+      }
+  
+  
+    </script>
 
   <script>
     function setUserIdentity(n) {
