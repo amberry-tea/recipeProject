@@ -1,4 +1,4 @@
-Project for COMP 1930 
+# Project for COMP 1930 
 
 This is a web project that generates users with vegan snack recipes based on a specific 
 category and ingredient chosen by the user. By interacting with a questionnaire, the 
@@ -6,8 +6,8 @@ user is given two recipes based on their choice or they can choose to skip the q
 for a broad recipe result. 
 
 
-Top level files:
-	* index.html (landing page)
+## Top level files:
+* index.html (landing page)
 	* login.html (login page)
 	* profile.html (profile page, accessible after authentication)
 	* categories.html (featured categories)
@@ -20,7 +20,7 @@ Top level files:
 	* saved.html (saved recipes)
 	* README.txt
 
-Subfolders:
-	* images
+## Subfolders:
+* images
 	* script
 	* style
