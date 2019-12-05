@@ -7,7 +7,7 @@
     var info = document.getElementById('info');
 
     //Function to show the home page informative menu after it has been hidden.
-    //Disabled because its design was ruled out as intrusive to the user
+    //Disabled because its design was ruled out as intrusive to the user.
     /*
     function showInfo() {
         $("#info").removeClass("hide");
@@ -49,7 +49,7 @@
 
     function loadRecipes() {
 
-        //if there are query params
+        // If there are query params
 
         let urlParams = new URLSearchParams(window.location.search);
         let category = urlParams.get('category');
@@ -57,12 +57,13 @@
         let cooked = (urlParams.get('cooked') == 'true');
 
 
-        //get where the ingredient is equal to the param
+        // Get where the ingredient is equal to the parameter
         let hasCategory = urlParams.has('category');
         let hasIngredient = urlParams.has('ingredient');
         let hasCooked = urlParams.has('cooked');
 
 
+        // Get recipe results based on user selection, including skip.
         if (hasCategory && hasIngredient && hasCooked) {
             db.collection("recipes")
                 .where("mainIngredient", "==", ingredient)
@@ -138,6 +139,8 @@
                 .catch(function (error) {
                     console.log("Error getting documents: ", error);
                 });
+                
+        // User selects skip option.
         } else {
             db.collection("recipes")
                 .get()
@@ -151,6 +154,7 @@
 
     }
 
+    // Get recipe snapshot (image, title, main ingredient)
     function recipeCreator(querySnapshot) {
         var div = $(".bodyContent");
         var t2 = "";
@@ -196,7 +200,7 @@
                 let ingredient = urlParams.get('ingredient');
                 let cooked = (urlParams.get('cooked') == 'true');
 
-                //get where the ingredient is equal to the param
+                // Get where the ingredient is equal to the param, returning recipe options based on params.
                 db.collection("recipes").where("mainIngredient", "==", ingredient).where("category", "==", category).where("cooked", "==", cooked)
                     .get()
                     .then(function (querySnapshot) {
@@ -221,7 +225,7 @@
                         console.log("Error getting documents: ", error);
                     });
             } else {
-                //get all recipes
+                // Get all recipes.
                 db.collection("recipes").get().then(function (querySnapshot) {
                     querySnapshot.forEach(function (doc) {
                         t2 += "<div class='recipeContainer'>";
@@ -254,7 +258,8 @@
 
         var height = Math.max(body.scrollHeight, body.offsetHeight,
             html.clientHeight, html.scrollHeight, html.offsetHeight);
-        // Detect when scrolled to bottom.
+        
+        // Detect when user has scrolled to the bottom.
         var content = document.querySelector('#content');
 
         document.addEventListener('scroll', function () {
@@ -265,9 +270,6 @@
                 //Show info function disabled, as it is intrusive.
                 //showInfo();
             }
-
-
-
             height = Math.max(body.scrollHeight, body.offsetHeight,
                 html.clientHeight, html.scrollHeight, html.offsetHeight);
 
@@ -280,6 +282,7 @@
         loadMore();
     }
 
+    // Getting the information for the selected recipe.
     function createRecipe() {
         var index = 0;
 
@@ -294,8 +297,6 @@
                 });
             })
             .then(function () {
-
-
                 if (index != null && index != 0) {
                     db.collection("recipes").doc(index)
                         .get()

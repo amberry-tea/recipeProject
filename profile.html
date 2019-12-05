@@ -61,6 +61,8 @@
 
 <body>
 
+    <!-- This is the profile page displaying the user's profile tag, and saved recipes and history. -->
+    <!-- User is able to set their identity tag and add to database. -->
   <div id=profileContent>
 
     <header>
@@ -102,7 +104,7 @@
       firebase.auth().onAuthStateChanged(function (user) {
         db.collection("users/").doc(user.uid).onSnapshot(function (d) {
           if (d.get("isA") != null)
-            x = d.data()["isA"]; //sets data in dropdown menu to identity tag
+            x = d.data()["isA"]; // Sets data in dropdown menu to identity tag.
           else
             x = "________"; // if user has not added tag yet
           document.getElementById("identityTag").innerHTML = x; //puts data in html
