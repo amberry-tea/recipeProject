@@ -18,7 +18,7 @@ for a broad recipe result.
 * recipes.html (shows recipe results)
 * recipe.html (shows selected recipe)
 * saved.html (saved recipes)
-* README.txt
+* README.md
 
 ## Subfolders:
 * images

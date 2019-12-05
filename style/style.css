@@ -635,6 +635,9 @@ header {
   margin-top: 2.8vh;
   float: left;
   margin-left: 50px;
+  border-style: solid;
+  border-color: rgb(255, 241, 161);
+  border-width: 6px;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -651,6 +654,9 @@ header {
   margin-top: 2.8vh;
   float: left;
   margin-left: 50px;
+  border-style: solid;
+  border-color: rgb(255, 241, 161);
+  border-width: 6px;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -667,6 +673,9 @@ header {
   margin-top: 2.8vh;
   float: left;
   margin-left: 50px;
+  border-style: solid;
+  border-color: rgb(255, 241, 161);
+  border-width: 6px;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -684,6 +693,9 @@ header {
   margin-top: 2.8vh;
   float: left;
   margin-left: 50px;
+  border-style: solid;
+  border-color: rgb(255, 241, 161);
+  border-width: 6px;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -700,6 +712,9 @@ header {
   margin-top: 2.8vh;
   float: left;
   margin-left: 50px;
+  border-style: solid;
+  border-color: rgb(255, 241, 161);
+  border-width: 6px;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -716,6 +731,9 @@ header {
   margin-top: 2.8vh;
   float: left;
   margin-left: 50px;
+  border-style: solid;
+  border-color: rgb(255, 241, 161);
+  border-width: 6px;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -734,6 +752,9 @@ header {
   margin-top: 2.8vh;
   float: left;
   margin-left: 50px;
+  border-style: solid;
+  border-color: rgb(255, 241, 161);
+  border-width: 6px;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -750,6 +771,9 @@ header {
   margin-top: 2.8vh;
   float: left;
   margin-left: 50px;
+  border-style: solid;
+  border-color: rgb(255, 241, 161);
+  border-width: 6px;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -766,6 +790,9 @@ header {
   margin-top: 2.8vh;
   float: left;
   margin-left: 50px;
+  border-style: solid;
+  border-color: rgb(255, 241, 161);
+  border-width: 6px;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -818,7 +845,7 @@ header {
 
 #subheader {
 height: 10vh;
-  background: #999999;
+  background: #8f8f8f;
   overflow: auto;
   border-bottom: 7px solid #FFE99c;
 padding-left: 0vh;
