@@ -63,7 +63,7 @@ $("#tempeh").on("click", function () {
     window.location.href = queryString;
 });
 
-$(document).on("click", '.recipeContainer', function(event){
+$(document).on("click", '.recipeContainer', function (event) {
     console.log(event.target);
     //Gets the parent container class, then gets its title span, then parses the HTML to set the query string
     window.location.href = "recipe.html?title=" + event.target.closest(".recipeContainer").getElementsByClassName("runnerName")[0].innerHTML;
@@ -85,7 +85,13 @@ $("#protienButton").on("click", function () {
 });
 
 $("#profileButton").on("click", function () {
-    window.location.href = 'profile.html';
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            window.location.href = 'profile.html'
+        } else {
+            window.location.href = 'login.html';
+        }
+    });
 });
 
 $("#searchButton").on("click", function () {
@@ -96,26 +102,26 @@ $("#homeButton").on("click", function () {
     window.location.href = 'index.html';
 });
 
-$("#fresh").on("click", function(){
+$("#fresh").on("click", function () {
     queryString = window.location.href.split("?");
     queryString = queryString[1];
     queryString = "recipes.html?" + queryString + "&cooked=false";
     window.location.href = queryString;
 });
 
-$("#cooked").on("click", function(){
+$("#cooked").on("click", function () {
     queryString = window.location.href.split("?");
     queryString = queryString[1];
     queryString = "recipes.html?" + queryString + "&cooked=true";
     window.location.href = queryString;
 });
 
-$("#checkmarkButton").on("click", function(){
+$("#checkmarkButton").on("click", function () {
     let url = window.location.pathname;
-    if(url == "/categories.html" ||
-    url == "/vegetables.html" || url == "/grains.html" || url == "/protein.html"){
+    if (url == "/categories.html" ||
+        url == "/vegetables.html" || url == "/grains.html" || url == "/protein.html") {
         window.location.pathname = "question1.html";
     } else if (url == "/question1.html") {
         window.location.pathname = "/recipes.html"
     }
-})  
+})
