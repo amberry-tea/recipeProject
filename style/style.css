@@ -145,6 +145,7 @@
   font-family: "Open Sans";
   border: 2px solid #AAAAAA;
   background-color: #D0F0C0;
+  border-radius: 2em;
 }
 
 .runnerName {
@@ -899,6 +900,7 @@ padding-left: 0vh;
   font-family: "Open Sans";
   border: 2px solid #AAAAAA;
   background-color: #D0F0C0;
+  border-radius: 2em;
 }
 
 .recipePageImage {
