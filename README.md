@@ -1,4 +1,4 @@
-* Project for COMP 1930 *
+Project for COMP 1930 
 
 This is a web project that generates users with vegan snack recipes based on a specific 
 category and ingredient chosen by the user. By interacting with a questionnaire, the 
