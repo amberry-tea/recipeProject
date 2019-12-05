@@ -153,7 +153,7 @@
         db.collection("users").doc(user.uid).set({
           "name": user.displayName,
           "email": user.email,
-          "isA": ""
+          "isA": "______"
         }, {
           merge: true
         });
