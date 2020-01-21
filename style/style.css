@@ -75,6 +75,7 @@
 #logoImg {
   width: 220pt;
   height: auto;
+  float: left;
 }
 
 
@@ -167,138 +168,9 @@
   padding-bottom: 150px;
 }
 
-@media screen and (min-width:1000px) {
-  header {
-    width: 100vw;
-    height: 10vh;
-    max-width: 100vw;
-    max-height: 10vh;
-    border: 4px solid #ffbc6c;
-    border-top: 0px;
-    border-left: 0px;
-    border-right: 0px;
-
-    background: #FFFFFF;
-  }
-
-  /* logo circle */
-  #logoCircle {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    left: 40px;
-    top: calc(50% - 30px);
-
-    border-radius: 100%;
-
-    background: #87D37C;
-  }
 
 
-  /* Home button */
-  #homeButton {
-    position: absolute;
-    display: inline-block;
-    left: calc(50vw - 20px);
-    width: 40px;
-    height: 40px;
 
-    background: url(../images/home.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    filter: brightness(.9);
-    /* border: 7px solid #80D070; */
-  }
-
-  /* Profile button */
-  #profileButton {
-    position: absolute;
-    display: inline-block;
-    left: calc(74vw - 20px);
-    width: 40px;
-    height: 40px;
-
-    background: url(../images/user.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
-  #searchButton {
-    /* Search recipe button */
-
-    position: absolute;
-    display: inline-block;
-    left: calc(27vw - 20px);
-    width: 40px;
-    height: 40px;
-
-
-    background: url(../images/search.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-
-
-  }
-
-  #lastInfoText {
-    margin-bottom: 75px;
-  }
-
-  .recipeText {
-    font-size: 15pt;
-    display: block;
-  }
-
-  .recipeContainer {
-    margin: 10px 1vw;
-    padding: 40px;
-    width: 39vw;
-    font-family: "Open Sans";
-    border: 2px solid #AAAAAA;
-    background-color: #D0F0C0;
-    display: inline-block;
-  }
-
-  .runnerName {
-    font-weight: bold;
-    font-size: 20pt;
-    display: block;
-    text-align: center;
-  }
-
-  .runnerimg {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-  }
-
-  #info {
-    position: fixed;
-    text-align: center;
-    font-size: 30pt;
-    font-family: 'Montserrat', sans-serif;
-    background-color: rgba(152, 226, 141, 0.432);
-    padding: 1px;
-    margin-top: calc(50vh - 14vh - 22vh);
-    width: 100%;
-  }
-
-  .infoText {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 20pt;
-    margin: 25px 100px;
-  }
-
-  #infoTitle {
-    margin-bottom: 25px;
-  }
-}
 
 body {
   margin: 0px;
@@ -367,6 +239,7 @@ header {
   line-height: 88px;
 
   color: #000000;
+  
 }
 
 
@@ -502,13 +375,13 @@ header {
   background-size: contain;
 }
 
-/* Checkmark button */
+/* Skip button */
 #checkmarkButton {
   position: absolute;
   width: 250px;
   height: 120px;
-  margin-left: 70vw;
-  margin-top: 5vh;
+  left: 68vw;
+  top: 82vh;
 
   background: #FFC46C;
 
@@ -573,7 +446,7 @@ header {
   border-style: solid;
   border-width: 4pt;
   border-color: #ffe6a1;
-  
+
   background-color: rgba(152, 226, 141, 0.5);
   background-position: center;
   background-repeat: no-repeat;
@@ -844,11 +717,11 @@ header {
 }
 
 #subheader {
-height: 10vh;
+  height: 10vh;
   background: #8f8f8f;
   overflow: auto;
   border-bottom: 7px solid #FFE99c;
-padding-left: 0vh;
+  padding-left: 0vh;
 }
 
 #currentLocation {
@@ -957,3 +830,164 @@ padding-left: 0vh;
 .hide {
   display: none;
 }
+
+/*
+
+@media only screen and (min-width:600px) {
+  header {
+    width: 100vw;
+    height: 10vh;
+    max-width: 100vw;
+    max-height: 10vh;
+    border: 4px solid #ffbc6c;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+
+    background: #FFFFFF;
+  }
+
+  #logoCircle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    left: 40px;
+    top: calc(50% - 30px);
+
+    border-radius: 100%;
+
+    background: #87D37C;
+  }
+
+
+  #homeButton {
+    position: absolute;
+    display: inline-block;
+    left: calc(50vw - 20px);
+    width: 40px;
+    height: 40px;
+
+    background: url(../images/home.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    filter: brightness(.9);
+  }
+
+  #profileButton {
+    position: absolute;
+    display: inline-block;
+    left: calc(74vw - 20px);
+    width: 40px;
+    height: 40px;
+
+    background: url(../images/user.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  #searchButton {
+
+    position: absolute;
+    display: inline-block;
+    left: calc(27vw - 20px);
+    width: 40px;
+    height: 40px;
+
+
+    background: url(../images/search.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+
+  }
+
+  #lastInfoText {
+    margin-bottom: 75px;
+  }
+
+  .recipeText {
+    font-size: 15pt;
+    display: block;
+  }
+
+  .recipeContainer {
+    margin: 10px 1vw;
+    padding: 40px;
+    width: 39vw;
+    font-family: "Open Sans";
+    border: 2px solid #AAAAAA;
+    background-color: #D0F0C0;
+    display: inline-block;
+  }
+
+  .runnerName {
+    font-weight: bold;
+    font-size: 20pt;
+    display: block;
+    text-align: center;
+  }
+
+  .runnerimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  #info {
+    position: fixed;
+    text-align: center;
+    font-size: 30pt;
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgba(152, 226, 141, 0.432);
+    padding: 1px;
+    margin-top: calc(50vh - 14vh - 22vh);
+    width: 100%;
+  }
+
+  .infoText {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20pt;
+    margin: 25px 100px;
+  }
+
+  #infoTitle {
+    margin-bottom: 25px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #headerTitle {
+    display: block;
+    padding-top: 20px;
+    margin-left: 0;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20pt;
+    line-height: 40px;
+    text-align: center;
+
+    color: #000000;
+  }
+
+  #logo {
+    position: absolute;
+    top: -30px;
+    float: left;
+    width: 22%;
+    margin-top: 0vh;
+  }
+
+  #logoImg {
+    width: 110px;
+    height: auto;
+  }
+}
+*/
