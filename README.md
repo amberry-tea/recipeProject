@@ -1,5 +1,7 @@
 # Project for COMP 1930 
 
+https://andrew-martin1.github.io/recipeProject/
+
 This is a web project that generates users with vegan snack recipes based on a specific 
 category and ingredient chosen by the user. By interacting with a questionnaire, the 
 user is given two recipes based on their choice or they can choose to skip the question 
